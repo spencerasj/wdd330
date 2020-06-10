@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=>, initial-scale=1.0">
-    <title>Document</title>
+    <title>Week One Notes and Code Examples</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -30,14 +31,15 @@
 
                 aCompleteNote += “<p>” + aNoteText + “</p>”
 
-                let storedNotesString = localStorage.getItem(“all_notes”)
-                let allNotes = JSON.parse(storedNotesString)
-                if(allNotes == null){
+                let storedNotesString = localStorage.getItem(“all_notes”) <span class="sidenotes"> “Hey, local storage, get the stuff that was stored with the key ‘all_notes’ and put it in the storedNotesString variable. Got it? </span>
+                let allNotes = JSON.parse(storedNotesString) <span class="sidenotes">converts the string containing representing the array of stored notes in the storedNotesString variable back into an actual JavaScript array.</span>
+ 
+                if(allNotes == null){ <span class="sidenotes">”If what’s in the allNotes variable is equal to null, put an empty array into the allNotes variable.” </span>
                         allNotes = []
                 }
-                allNotes.push(aCompleteNote)
-                let allNotesString = JSON.stringify(allNotes)
-                localStorage.setItem(“all_notes”, allNotesString)
+                allNotes.push(aCompleteNote)<span class="sidenotes">,”Push aCompleteNote onto the end of the allNotes array.” </span>
+                let allNotesString = JSON.stringify(allNotes)<span class="sidenotes">“Hey JSON, convert everything in the array in the allNotes variable into one string and put the string you create into the allNotesString variable.” </span>
+                localStorage.setItem(“all_notes”, allNotesString)<span class="sidenotes"> “Hey localStorage, store the allNotesString using the key ‘all_notes’ so I can get it back later.” </span>
             }
         </code>
     </div>
