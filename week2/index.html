@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 2 Notes and Code Examples</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <h1>Notes for Chapter 2 Programming Basics</h1>
+    <div>
+        <ul>
+            <li>Single Line comments start with //</li>
+            <li>Multi-line comments starting with /* and finishing with */</li>
+            <li>Use <span class="word">typeof</span> for finding out the type of a value. <span
+                    class="examples">Ex...typeof 'hello'...returns....'string'</span></li>
+            <li><span class="word">const</span> is used when the variable will not be reassigned to another value</li>
+            <li><span class="word">let</span> is used if the variable might be reassigned later in the program</li>
+            <li>Any variable declared outside of a block is said to have<span class="word">global scope</span>. This
+                means it is accessible everywhere in the program. </li>
+            <li>blocks can be used to create a <span class="word">local scope</span>. This means that any variables
+                defined inside a block using the let or const will only be available inside that block and not be
+                accessible outside of that block</li>
+            <li>Constant and variable names can start with any upper or lower-case letter, an underscore, _ , or dollar
+                character, $ . They can also contain numbers, but cannot start with them.<span
+                    class="examples">Examples....$name, _answer, firstName, last_name, address_line1</span></li>
+            <li>Variables that start with an underscore generally refer to private properties and methods, so it's best
+                to not follow this convention for your own variable names. The $ character is also used by the popular
+                jQuery library, so using this in your variable names may also cause problems.</li>
+            <li>Constant and variable names are case sensitive</li>
+            <li><span class="examples">'It's me'</span> // causes an error
+                <span class="examples">"It’s me"</span> // this works Another option is to escape the quotation mark
+                <span class="examples">'It\'s me'</span></li>
+            <li>The backslash is used to escape special characters in strings such as:
+
+                Single quote marks \'
+
+                Double quote marks \"
+
+                End of line \n
+
+                Carriage return \r
+
+                Tab \t
+
+                If you want to actually write a backslash, you need to escape it with another backslash:
+
+                "This is a backslash \\"
+                ..... "This is a backslash \"</li>
+            <li>we can write a string in all capital letters using the <span class="word">toUpperCase()</span> method
+            </li>
+            <li> the <span class="word">toLowerCase()</span> method, which will write my name in all lower-case letters
+            </li>
+            <li>If you want to know which character is at a certain position, you can use the <span
+                    class="word">charAt()</span> method</li>
+            <li>If you want to find where a certain character or substring appears in a string, we can use the <span
+                    class="word">indexOf()</span> method</li>
+            <li>If we want the last occurrence of a character or substring, we can use the <span
+                    class="word">lastIndexOf()</span> method</li>
+            <li>If all we want to know if a string contains a certain character, then ES2016 provides the useful <span
+                    class="word">includes()</span> method</li>
+            <li>To check if a string starts with a certain character, we can use the <span
+                    class="word">startsWith()</span> method. Be careful though, it's case-sensitive</li>
+            <li>And we can use the similar <span class="word">endsWith() </span>method to check if a string ends with a
+                particular character</li>
+            <li>The <span class="word">concat()</span> method can be used to concatenate two or more strings together or
+                the <span class="word">+</span></li>
+            <li>The <span class="word">trim()</span> method will remove any whitespace from the beginning and end of a
+                string</li>
+            <li> the <span class="word">repeat()</span> method that will repeat a string the stated number of times:
+            </li>
+            <li><span class="word">Template literals</span> are a special types of string that were introduced in ES6.
+                Template literals use the backtick character, <span class="word">`</span> , to deliminate the string, as
+                shown in the example below:<span class="examples">`She said, "It's Me!"` or `Hello!`; or const age = 39;
+                    `I will be ${ age + 1 } next year`;
+                    << 'I will be 40 next year' </span> </li> <li>The <span class="word">toFixed()</span> method rounds
+                        a number to a fixed number of decimal places: <span class="examples">Examples: PI.toFixed(3); //
+                            only one dot is needed when using constants or variables
+                            << "3.142" </span> </li> <li>There is also a useful function called <span
+                                    class="word">parseInt()</span> that can be used to convert a string representation
+                                of a numerical value back into a number</li>
+            <li>if you use parseInt with a decimal, it will remove anything after the decimal point</li>
+            <li><span class="word">parseFloat()</span> that converts strings into floating point decimal numbers</li>
+            <li><span class="word">Undefined</span> is the value given to variables that have not been assigned a value.
+            </li>
+            <li><span class="word">Null</span> means 'no value'. It can be thought of as a placeholder that JavaScript
+                uses to say "there should be a value here, but there isn’t at the moment."</li>
+        </ul>
+    </div>
+    <h1>Notes for Chapter 3: Arrays Logic and Loops</h1>
+    <div>
+        <ul>
+            <li></li>
+        </ul>
+    </div>
+
+</body>
+
+</html>

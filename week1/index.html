@@ -18,31 +18,43 @@
                 stored piece of
                 information with what you ﬁnd in the storyName variable (box).”</span>
             <p>It can also be called ‘key-value pairs.</p>
+            <p>Always remember to build in the mobile view first. Think about the size of things on the phone screen and
+                where it is the easiest for peoples thumbs to reach.</p>
         </p>
     </div>
     <h2>Code Examples</h2>
     <div>
         <code>
             function saveNote() {
-                let currentDateAndTime = new Date()
-                let aNoteDescription = document.getElementById(“description_input”).value
-                let aNoteText = document.getElementById(“note_editor”).value
-                let aCompleteNote = currentDateAndTime.toLocaleString() +"--" + aNoteDescription
+            let currentDateAndTime = new Date()
+            let aNoteDescription = document.getElementById(“description_input”).value
+            let aNoteText = document.getElementById(“note_editor”).value
+            let aCompleteNote = currentDateAndTime.toLocaleString() +"--" + aNoteDescription
 
-                aCompleteNote += “<p>” + aNoteText + “</p>”
+            aCompleteNote += “<p>” + aNoteText + “</p>”
 
-                let storedNotesString = localStorage.getItem(“all_notes”) <span class="sidenotes"> “Hey, local storage, get the stuff that was stored with the key ‘all_notes’ and put it in the storedNotesString variable. Got it? </span>
-                let allNotes = JSON.parse(storedNotesString) <span class="sidenotes">converts the string containing representing the array of stored notes in the storedNotesString variable back into an actual JavaScript array.</span>
- 
-                if(allNotes == null){ <span class="sidenotes">”If what’s in the allNotes variable is equal to null, put an empty array into the allNotes variable.” </span>
-                        allNotes = []
-                }
-                allNotes.push(aCompleteNote)<span class="sidenotes">,”Push aCompleteNote onto the end of the allNotes array.” </span>
-                let allNotesString = JSON.stringify(allNotes)<span class="sidenotes">“Hey JSON, convert everything in the array in the allNotes variable into one string and put the string you create into the allNotesString variable.” </span>
-                localStorage.setItem(“all_notes”, allNotesString)<span class="sidenotes"> “Hey localStorage, store the allNotesString using the key ‘all_notes’ so I can get it back later.” </span>
+            let storedNotesString = localStorage.getItem(“all_notes”) <span class="sidenotes"> “Hey, local storage, get
+                the stuff that was stored with the key ‘all_notes’ and put it in the storedNotesString variable. Got it?
+            </span>
+            let allNotes = JSON.parse(storedNotesString) <span class="sidenotes">converts the string containing
+                representing the array of stored notes in the storedNotesString variable back into an actual JavaScript
+                array.</span>
+
+            if(allNotes == null){ <span class="sidenotes">”If what’s in the allNotes variable is equal to null, put an
+                empty array into the allNotes variable.” </span>
+            allNotes = []
+            }
+            allNotes.push(aCompleteNote)<span class="sidenotes">,”Push aCompleteNote onto the end of the allNotes
+                array.” </span>
+            let allNotesString = JSON.stringify(allNotes)<span class="sidenotes">“Hey JSON, convert everything in the
+                array in the allNotes variable into one string and put the string you create into the allNotesString
+                variable.” </span>
+            localStorage.setItem(“all_notes”, allNotesString)<span class="sidenotes"> “Hey localStorage, store the
+                allNotesString using the key ‘all_notes’ so I can get it back later.” </span>
             }
         </code>
     </div>
+
 </body>
 
 </html>
