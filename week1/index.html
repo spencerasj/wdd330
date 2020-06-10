@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=>, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <h1>Notes for week one</h1>
+    <div>
+        <p>Most of the reading this week was review. The new thing for me was local storage. I liked this quote<br><br>
+            <span id="localStorage">“Hey, localStorage, store what’s in the storyHTML variable (box) and label that
+                stored piece of
+                information with what you ﬁnd in the storyName variable (box).”</span>
+            <p>It can also be called ‘key-value pairs.</p>
+        </p>
+    </div>
+    <h2>Code Examples</h2>
+    <div>
+        <code>
+            function saveNote() {
+                let currentDateAndTime = new Date()
+                let aNoteDescription = document.getElementById(“description_input”).value
+                let aNoteText = document.getElementById(“note_editor”).value
+                let aCompleteNote = currentDateAndTime.toLocaleString() +"--" + aNoteDescription
+
+                aCompleteNote += “<p>” + aNoteText + “</p>”
+
+                let storedNotesString = localStorage.getItem(“all_notes”)
+                let allNotes = JSON.parse(storedNotesString)
+                if(allNotes == null){
+                        allNotes = []
+                }
+                allNotes.push(aCompleteNote)
+                let allNotesString = JSON.stringify(allNotes)
+                localStorage.setItem(“all_notes”, allNotesString)
+            }
+        </code>
+    </div>
+</body>
+
+</html>
