@@ -7,7 +7,7 @@ function button() {
 
 
 document.getElementById("button2").addEventListener("click", function(){(document.getElementById("number").value)
-);
+});
 document.getElementById("div2").innerHTML = answer;
 
 function sum(num) {
@@ -18,4 +18,3 @@ function sum(num) {
     }
    return total;
 }
-
