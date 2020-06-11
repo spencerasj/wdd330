@@ -7,3 +7,40 @@ body {
 .sidenotes {
     color: rgb(243, 32, 32);
 }
+h1 {
+    font-family: 'Architects Daughter', cursive;
+    color: rgb(39, 130, 146);
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+nav ul li:first-child {
+    display: block;
+}
+nav ul li {
+    background-color: rgb(39, 130, 146);
+    border: 1px solid white;
+    display: none;
+    text-align: center;
+    font-family: 'Architects Daughter', cursive;
+}
+
+nav ul li a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: white;
+}
+
+.open li{
+    display: block;
+}
+footer {
+    font-family: 'Architects Daughter', cursive;
+    color: rgb(39, 130, 146);
+    text-align: center;
+}
