@@ -48,6 +48,11 @@ nav ul li a {
 .open li{
     display: block;
 }
+.research {
+    color: purple;
+    font-weight: bold;
+    font-size: x-large;
+}
 footer {
     font-family: 'Architects Daughter', cursive;
     color: rgb(39, 130, 146);
