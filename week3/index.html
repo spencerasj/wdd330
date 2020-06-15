@@ -175,15 +175,17 @@
     <h1>Notes for Chapter 7: Events</h1>
     <div>
         <ul>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
+            <li><span class="word">Event Listeners</span> are like setting a notification to alert you when something happens. Instead of the program having to constantly check to see if an event has occurred, the event listener will let it know when the event happens, and the program can then respond appropriately. This allows the program to continue with other tasks while it waits for the event to happen.</li>
+            <li>The following code can be used to attach an event listener to the document that fires when the user clicks anywhere on the page:<br><span class="examples">document.body.addEventListener("click", doSomething);</span></li>
+            <li>The <span class="word">click event</span> occurs when a user clicks with the mouse, presses the Enter key, or taps the screen, making it a very useful all-round event covering many types of interaction.</li>
+            <li><span class="examples">function doSomething(event){<br>
+                console.log(event.type);
+            }</span>This will show<span class="word"> click </span>in the console.In the example, the type property is used to tell us that the type of event logged was a <span class="word">click event</span>.</li>
+            <li>The parameter does not have to be called <span class="word">event</span> . It can be given any legal variable name, although calling it <span class="word">event</span> can make it easier to read the code. Many developers often abbreviate it to just <span class="word">e</span> .</li>
+            <li>The<span class="word"> type</span> property returns the type of event that occurred</li>
+            <li>The <span class="word">target</span> property returns a reference to the node that fired the event.</li>
+            <li>There are several types of events, ranging from when a video has finished playing to when a resource has completed downloading. You can see afull list on the Events page of the Mozilla Developer Network.</li>
+            <li><span class="research">Items to research: Mouse Events, Keyboard Events</li>
             <li></li>
             <li></li>
             <li></li>
