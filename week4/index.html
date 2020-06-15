@@ -25,186 +25,19 @@
             <li><a href="https://spencerasj.github.io/wdd330/week9/">Week 9</a></li>
         </ul>
     </nav>
-    <h1>Notes about This</h1>
+    <h1>Chapter 8: Forms</h1>
     <div>
         <ul>
-            <li>When <span class="word">this</span> is called outside of any function, in a global context, this defaults to the Window object in the browser.</li>
-            <li>When you create a new instance of an object with the new keyword, <span class="word">this</span> refers to the instance. <br><span class="examples">function Human (age) {<br>
-                this.age = age<br>
-              }<br>
-              
-              let greg = new Human(22)<br>
-              let thomas = new Human(24)<br>
-              
-              console.log(greg) // this.age = 22<br>
-              console.log(thomas) // this.age = 24</span></li>
-            <li><span class="word">this</span> within any method refers to the object itself. <span class="examples">function Human (name) {
-                return {
-                  name,
-                  getName() {
-                    return this.name
-                  }
-                }
-              }
-              
-              const zell = new Human('Zell')
-              const vincy = new Human('Vincy')
-              
-              console.log(zell.getName()) // Zell</span></li>
-            <li>On browsers, this is always set to Window in a simple function. The same is true even if you call a simple function in an object method.<span class="examples">function simpleFunction () {
-                console.log(this)
-              }
-              
-              const o = {
-                sayThis () {
-                  simpleFunction()
-                }
-              }
-              
-              simpleFunction() // Window
-              o.sayThis() // Window</span></li>
-            <li><span class="word">this </span> in an arrow function is always the same as <span class="word">this </span> around it (in its immediate scope). So, if you use arrow functions within an object method, the <span class="word">this </span> context stays as the object, not Window. <span class="examples">const o = {
-                doSomethingLater () {
-                  setTimeout(() => this.speakLeet(), 1000)
-                },
-                speakLeet() {
-                  console.log(`1337 15 4W350M3`)
-                }
-              }</span></li>
-            <li><span class="word">this </span> is set to the element that fired the event in an event listener: <span class="examples">let button = document.querySelector('button')
-
-                button.addEventListener('click', function() {
-                  console.log(this) // button
-                }) <br>
-                 function LeetSpeaker (elem) {
-                    return {
-                      listenClick () {
-                        const self = this
-                        elem.addEventListener('click', function () {
-                          self.speakLeet()
-                        })
-                      },
-                      speakLeet() { console.log(`1337 15 4W350M3`) }
-                    }
-                  }</span></li>
-            <li><span class="research">Read up more on <span class="word">bind, </span><span class="word">call</span> or <span class="word">apply</span>.</span></li>
-        </ul>
-    </div>
-    <h1>Notes for Chapter 5 Objects</h1>
-    <div>
-        <ul>
-            <li>An <span class="word">object literal</span> is an object that is created directly in the language by wrapping all its properties and methods in curly braces {} . <span class="word">Object literals</span> are a distinguishing feature of the JavaScript language, as they allow objects to be created quickly without the need for defining a class.<br> <span class="examples">const superman = {<br>
-                name: 'Superman',<br>
-                'real name': 'Clark Kent',<br>
-                height: 75,<br>
-                weight: 235,<br>
-                hero: true,<br>
-                villain: false,<br>
-                allies: ['Batman','Supergirl','Superboy'],<br>
-                fly() {<br>
-                    return 'Up, up and away!';<br>
-                }<br>
-            };</span></li>
-            <li>It’s also possible to create an object using a constructor function <br><span class="examples">const spiderman = new Object();</span></li>
-            <li>access the properties</li>
-            <span class="examples">superman.name<br>
-                << 'Superman'</span>
-            <li><span class="research">What does <span class="examples"> ? false : true</span> mean? Also, read more on <span class="word">Symbol()</span></span></li>
-            <li>To call an object’s method we can also use dot or bracket notation.<br><span class="examples">superman.fly()<br>
-                << 'Up, up and away!'<br>
-                superman['fly']()<br>
-                << 'Up, up and away!'</span></li>
-            <li>The <span class="word">in</span> operator can be used to check whether an object has a particular property <span class="examples">'city' in superman;
-                << false</span></li>
-            <li><span class="word">hasOwnProperty() </span>. This can be used to check whether an object has a property that is its own, rather than one that has been inherited from another object</li>
-            <li>It’s even possible for an object to contain other objects. These are known as <span class="word">nested objects</span>.<br><span class="examples"> const jla = {<br>
-                superman: { realName: 'Clark Kent' },<br>
-                batman: { realName: 'Bruce Wayne' },<br>
-                wonderWoman: { realName: 'Diana Prince" },<br>
-                flash: { realName: 'Barry Allen' },<br>
-                aquaman: { realName: 'Arthur Curry' },
-            } </li>
-            <li>The values in nested objects can be accessed by referencing each property name in order using either dot or bracket notation:<br><span class="examples">jla.wonderWoman.realName<br>
-                << "Diana Prince"<br>
-                jla['flash']['realName']<br>
-                << "Barry Allen"</span></li>
-            <li>An object literal can be passed as a parameter to a function.<br><span class="examples">function greet({greeting,name,age}) {<br>
-                return `${greeting}! My name is ${name} and I am ${age} years old.`;}</span></li>
-            <li><span class="research">read more about <span class="word">named parameters, namespacing, methods for JSON, Math() functions, getter methods, regular expressions</span></span></li>
-            <li><span class="word">JSON</span> is a string representation of the object literal notation that we have just seen. There are, however, a couple of key differences:
-
-                1. Property names must be double-quoted
-                2. Permitted values are double-quoted strings, numbers, true, false, null, arrays and objects
-                3. Functions are not permitted values</li>
-        </ul>
-    </div>
-    <h1>Notes for Chapter 6 The DOM</h1>
-    <div>
-        <ul>
-            <li>The Document Object Model, or <span class="word">DOM</span> for short, represents an HTML document as a network of connected nodes that form a tree-like structure.
-
-                The <span class="word">DOM</span> treats everything on a web page as a node. HTML tags, the text inside these tags, even the attributes of a tag are all nodes. The HTML tag is the root node, and every other part of the document is a child node of this.</li>
-            <li>Different ways to get elements......<span class="word">getElementById(), getElementsByTagName(), getElementsByClassName(), document.querySelector(), document.querySelectorAll()</span></li>
-            <li><span class="research">review getter and setter methods, review toggle method, textContent property, live collections, display property </span></li>
-            <li>The <span class="word">setAttribute() </span>can change the value of an element’s attributes. It takes two arguments: the attribute that you wish to change, and the new value of that attribute.<br><span class="examples">wonderWoman.setAttribute('class', 'villain');<br>
-                << undefined<br>
-                wonderWoman.getAttribute('class');<br>
-                << "villain"</span></li>
-            <li>There is also a <span class="word">className()</span> property that allows the class of an element to be set directly<br><span class="examples">wonderWoman.className;<br>
-                << "villain"<br>
-                We can change the class back to 'hero' with the following code:<br>
-                
-                wonderWoman.className = 'hero'<br>
-                << "hero"</span></li>
-            <li><span class="word">classList()</span> property is a list of all the classes an element has. </li>
-            <li>The <span class="word">add()</span> method can be used to add a class to an element without overwriting any classes that already exist</li>
-            <li>document object has a <span class="word">createElement()</span> method that takes a tag name as a parameter and returns that element<br><span class="examples">const flash = document.createElement('li');</span></span></li>
-            <li>A text node can be created using the <span class="word">document.createTextNode() method</span>. It takes a parameter, which is a string containing the text that goes in the node<br><span class="examples">const flashText = document.createTextNode('Flash');</span></span></li>
-            <li>Every node object has an<span class="word"> appendChild()</span> method that will add another node (given as an argument) as a child node. We want our newly created text node to be a child node of the list element node. This means that it’s the flash object that calls the method, with flashText as its argument<br><span class="examples">flash.appendChild(flashText);</span></span></li>
-            <li>A Function To Create Elements<br><span class="examples">function createElement (tag,text) {<br>
-                const el = document.createElement(tag);<br>
-                el.textContent = text;<br>
-                return el<br>
-            }</span>Let’s try it out by creating another new list item element:<br><span class="examples">const aquaman = createElement('li','Aquaman');</span></span></li>
-            <li><span class="word">replaceChild()</span> method can be used to replace one node with another. It’s called on the parent node and has two parameters: the new node and the node that is to be replaced.<br><span class="examples">const h1 = document.getElementById('title');<br>
-                const oldText = h1.firstChild;<br>
-                const newText = document.createTextNode('Justice League of America');<br>
-                h1.replaceChild(newText,oldText);</span></li>
-                <li>The <span class="word">innerHTML</span> property is also writable and can be used to place a chunk of HTML inside an element. This will replace all of a node’s children with the raw HTML contained in the string<br><span class="examples">h1.innerHTML = 'Suicide Squad';<br><br>heroes.innerHTML = '<li>Harley Quinn</li><li>Deadshot</li><li>Killer Croc</li><li>Enchantress</li><li>Captain Boomerang</li><li>Katana</li><li>Slipknot</li>'; <span class="word">(see the HTML for the correct format)</span></span></span></li>
-        </ul>
-    </div>
-    <h1>Notes for Chapter 7: Events</h1>
-    <div>
-        <ul>
-            <li><span class="word">Event Listeners</span> are like setting a notification to alert you when something happens. Instead of the program having to constantly check to see if an event has occurred, the event listener will let it know when the event happens, and the program can then respond appropriately. This allows the program to continue with other tasks while it waits for the event to happen.</li>
-            <li>The following code can be used to attach an event listener to the document that fires when the user clicks anywhere on the page:<br><span class="examples">document.body.addEventListener("click", doSomething);</span></li>
-            <li>The <span class="word">click event</span> occurs when a user clicks with the mouse, presses the Enter key, or taps the screen, making it a very useful all-round event covering many types of interaction.</li>
-            <li><span class="examples">function doSomething(event){<br>
-                console.log(event.type);
-            }</span>This will show<span class="word"> click </span>in the console.In the example, the type property is used to tell us that the type of event logged was a <span class="word">click event</span>.</li>
-            <li>The parameter does not have to be called <span class="word">event</span> . It can be given any legal variable name, although calling it <span class="word">event</span> can make it easier to read the code. Many developers often abbreviate it to just <span class="word">e</span> .</li>
-            <li>The<span class="word"> type</span> property returns the type of event that occurred</li>
-            <li>The <span class="word">target</span> property returns a reference to the node that fired the event.</li>
-            <li>There are several types of events, ranging from when a video has finished playing to when a resource has completed downloading. You can see afull list on the Events page of the Mozilla Developer Network.</li>
-            <li><span class="research">Items to research: Mouse Events, Keyboard Events, Modifier Keys, Touch Events and touch even properties</li>
-            <li>Be careful when using the <span class="word">touchstart event</span> as it fires as soon as a user touches the screen. They may be touching the screen because they want to zoom in or swipe, and a <span class="word">touchstart event listener</span> could prevent them from doing this.
-
-                The <span class="word">click event</span> is often a much safer option as it still fires when the screen is touched, but there’s a slight delay of 300ms, allowing the user time to perform another action with the device. The <span class="word">click event</span> can be thought of as a "tap" in the context of a touch event.</li>
-            <li>If you need to implement gestures, it's probably a good idea to use a library such asHammer.JSorzingtouchthat makes events such as swipe, pinch and rotate easy to implement.</li>
-            <li>Touch events are complex and difficult to implement. Many of the properties and methods mentioned above are still marked as being experimental and not widely implemented in browsers.</li>
-            <li>An event listener can be removed using the <span class="word">removeEventListener()</span> method<br><span class="examples">const onceParagraph = document.getElementById('once');<br>
-                onceParagraph.addEventListener('click', remove);<br>
-                function remove(event) {<br>
-                    console.log('Enjoy this while it lasts!');<br>
-                    onceParagraph.style.backgroundColor = 'pink';<br>
-                    onceParagraph.removeEventListener('click',remove);
-                }</span></span><br>This adds a click event listener to a paragraph element, but then removes it in the callback function named remove . This means it will only be called once (try clicking on it again and nothing happens)</li>
-            <li><span class="word">Event propagation</span> is the order that the events fire on each element. There are two forms of event propagation: <span class="word">bubbling and capturing.</span></li>
-            <li><span class="word">Bubbling</span> is when the event fires on the element clicked on first, then bubbles up the document tree, firing an event on each parent element until it reaches the root node.</li>
-            <li><span class="word">Capturing</span> starts by firing an event on the root element, then propagates downwards, firing an event on each child element until it reaches the target element that was clicked on.</li>
+            <li>If you'd like to learn more about how to design forms that are accessible and enhance the user experience then Designing UX: Formsby Jessica Enders is well worth a read</li>
+            <li>The <span class="word">action</span> attribute is the URL that the form will be submitted to so it can be processed on the server side. </li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
             <li></li>
         </ul>
-    </div>
+            
     <footer>
         &copy; 2020 | Portfolio | Jennifer Spencer
     </footer>
