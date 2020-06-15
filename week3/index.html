@@ -185,10 +185,22 @@
             <li>The<span class="word"> type</span> property returns the type of event that occurred</li>
             <li>The <span class="word">target</span> property returns a reference to the node that fired the event.</li>
             <li>There are several types of events, ranging from when a video has finished playing to when a resource has completed downloading. You can see afull list on the Events page of the Mozilla Developer Network.</li>
-            <li><span class="research">Items to research: Mouse Events, Keyboard Events</li>
-            <li></li>
-            <li></li>
-            <li></li>
+            <li><span class="research">Items to research: Mouse Events, Keyboard Events, Modifier Keys, Touch Events and touch even properties</li>
+            <li>Be careful when using the <span class="word">touchstart event</span> as it fires as soon as a user touches the screen. They may be touching the screen because they want to zoom in or swipe, and a <span class="word">touchstart event listener</span> could prevent them from doing this.
+
+                The <span class="word">click event</span> is often a much safer option as it still fires when the screen is touched, but there’s a slight delay of 300ms, allowing the user time to perform another action with the device. The <span class="word">click event</span> can be thought of as a "tap" in the context of a touch event.</li>
+            <li>If you need to implement gestures, it's probably a good idea to use a library such asHammer.JSorzingtouchthat makes events such as swipe, pinch and rotate easy to implement.</li>
+            <li>Touch events are complex and difficult to implement. Many of the properties and methods mentioned above are still marked as being experimental and not widely implemented in browsers.</li>
+            <li>An event listener can be removed using the <span class="word">removeEventListener()</span> method<br><span class="examples">const onceParagraph = document.getElementById('once');<br>
+                onceParagraph.addEventListener('click', remove);<br>
+                function remove(event) {<br>
+                    console.log('Enjoy this while it lasts!');<br>
+                    onceParagraph.style.backgroundColor = 'pink';<br>
+                    onceParagraph.removeEventListener('click',remove);
+                }</span></span><br>This adds a click event listener to a paragraph element, but then removes it in the callback function named remove . This means it will only be called once (try clicking on it again and nothing happens)</li>
+            <li><span class="word">Event propagation</span> is the order that the events fire on each element. There are two forms of event propagation: <span class="word">bubbling and capturing.</span></li>
+            <li><span class="word">Bubbling</span> is when the event fires on the element clicked on first, then bubbles up the document tree, firing an event on each parent element until it reaches the root node.</li>
+            <li><span class="word">Capturing</span> starts by firing an event on the root element, then propagates downwards, firing an event on each child element until it reaches the target element that was clicked on.</li>
             <li></li>
         </ul>
     </div>
