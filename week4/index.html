@@ -30,13 +30,67 @@
         <ul>
             <li>If you'd like to learn more about how to design forms that are accessible and enhance the user experience then Designing UX: Formsby Jessica Enders is well worth a read</li>
             <li>The <span class="word">action</span> attribute is the URL that the form will be submitted to so it can be processed on the server side. </li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
+            <li>We can also access the form controls using their 'name' attributes as if it was a property of the form object.<br><span class="examples">const input = form.searchInput</span></li>
+            <li>The <span class="word">form.submit()</span> method will submit the form automatically. Note that submitting a form using this method won’t trigger the form <span class="word">submit event</span></li>
+            <li><span class="examples">button type='submit'>Submit/button<br>
+                input type='submit' value='Submit'<br>
+                input type='image' src='button.png'</span></li>
+            <li><span class="examples">button type='reset'>Reset button</span></li>
+            <li>Reset buttons are generally considered poor for usability, as they are too easy to click and then wipe out all the data that’s been entered. So think very carefully before using one in a form.</li>
+            <li><span class="research">Learn More about: Form Events such as blur, focus, change.  The placeholder attribute, hidden input fields, input types <span class="examples">number, tel and color.</span> </span></li>
+            <li>Text input element objects have a value property that can be used to retrieve the text inside the field.<br><span class="examples"><span class="word">input fields</span> , including text, passwords, check boxes, radio buttons, and file uploads<br>
+                <span class="word">select menus</span> for drop-down lists of options<br>
+                <span class="word">textarea</span> elements for longer text entry<br>
+                <span class="word">button</span> elements for submitting and resetting forms</span></li>
+            <li>A <span class="word">file input field</span> can be created using input fields with type='file' . These are used to upload files, and most browsers will provide a browse button or similar that lets users select a file from their file system.</li>
+            <li>Form validation is the process of checking whether a user has entered the information into a form correctly.<br> <span class="examples">Examples:<br>A required field is completed
+            An email address is valid<br>
+            A number is entered when numerical data is required<br>
+            A password is at least a minimum number of characters</li>
+            <li>We can improve the usability of the form further by giving instant feedback, instead of waiting for the form to be submitted.This can be achieved by adding the event listener directly to the input field that will fire when the user presses a key</li>
+            <li>A submit button can be disable by added the <span class="word">disabled attribute </span>to the <span class="word">input</span> element:<br><span class="examples">button type='submit' id='submit' disabled Submit button</span> </li>
         </ul>
+    <h1>Chapter 12 Notes: Object Oriented Programming</h1>  
+    <div>
+        <ul>
+            <li>There are three main concepts in OOP: <span class="word">encapsulation, polymorphism and inheritance.</span></li>
+            <li><span class="word">Encapsulation:</span> In OOP, this involves keeping all the programming logic inside an object and making methods available to implement the functionality, without the outside world needing to knowhowit’s done</li>
+            <li><span class="word">Polymorphism:</span> In OOP, this means various objects can share the same method, but also have the ability to override shared methods with a more specific implementation.</li>
+            <li><span class="word">Inheritance:</span> In OOP, this means we can take an object that already exists and inherit all its properties and methods. We can then improve on its functionality by adding new properties and methods.</li>
+            <li>Many object-oriented languages, such as Java and Ruby, are known as <span class="word">class-based</span> languages. </li>
+            <li>We can now create an <span class="word">instance</span> of the dice constructor function using the <span class="word">new</span> operator.<br><span class="examples">Examples:<br>const redDice = new Dice;</span></li>
+            <li>The parentheses are required, however, if any default arguments need to be provided.</li>
+            <li>JavaScript contains a number of built-in constructor functions such as <span class="word">Object , Array , and Function</span> that can be used to create objects, arrays and functions instead of literals.</li>
+            <li>Array constructor functions exhibit some strange behavior regarding the arguments supplied, however. If only one argument is given, it doesn’t create an array with that argument as the first element, as you might expect. It sets the array’s length property instead, and returns an array full of undefined</li>
+            <li><span class="word">the newclass declaration syntax</span><br> <span class="examples">class Dice {<br>
+                constructor(sides=6) {<br>
+                    this.sides = sides;<br>
+                }<br>
+                roll() {<br>
+                    return Math.floor(this.sides * Math.random() + 1)<br>
+                }<br>
+            }</span></li>
+            <li>Static methods are not available to instances of the class</li>
+            <li>JavaScript uses a prototypal inheritance model. This means that every class has a prototype property that is shared by every instance of the class. So any properties or methods of a class’s prototype can be accessed by every object instantiated by that class.</li>
+            <li><span class="word">this</span> in the prototype always refers to the instance that actually calls the method.</li>
+            <li>So what’s the difference between an object's own properties and prototype properties? Prototype properties are shared by every instance of the class. This means they’ll all have a property, and it will always be the same value. This value is the same for all the instances and only exists in one place ― as a property of the prototype. This means that it only exists in memory in one place, which is more efficient than each instance having its own value. This is particularly useful for any properties that are the same</li>
+            <li>The <span class="word">The Prototype Object is Live</span>, so if a new property or method is added to the prototype, any instances of its class will inherit the new properties and methods automatically, even if that instance has already been created.</li>
+            <li>If we change the value of the prototype’s property, this will be reflected in allinstances of the class</li>
+            <li>It is not possible to overwrite the prototype by assigning it to a new object literal if class declarations are used</li>
+            <li>An object instance can overwrite any properties or methods inherited from its prototype by simply assigning a new value to them</li>
+            <li>Any own properties will take precedence over the same prototype property when used in methods</li>
+            <li>When a property or method is called, the JavaScript engine will check to see if an object has its own property or method. If it does, it will use that one; otherwise, it will continue up the prototype chain until it finds a match or reaches the top of the chain.</li>
+            <li>The prototype can be used to add any new properties and methods after the class has been declared. It should be used to define any properties that will remain the same for every instance of the class</li>
+            <li>Never use arrays or objects as a default value in prototype.</li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li><span class="research">Look more into constructor functions, built in constructor functions: Object , Array , and Function.... static methods, prototype properties, public/private methods, prototype chain</span></li>
+        </ul>
+    </div> 
             
     <footer>
         &copy; 2020 | Portfolio | Jennifer Spencer
