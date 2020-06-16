@@ -82,13 +82,18 @@
             <li>When a property or method is called, the JavaScript engine will check to see if an object has its own property or method. If it does, it will use that one; otherwise, it will continue up the prototype chain until it finds a match or reaches the top of the chain.</li>
             <li>The prototype can be used to add any new properties and methods after the class has been declared. It should be used to define any properties that will remain the same for every instance of the class</li>
             <li>Never use arrays or objects as a default value in prototype.</li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li><span class="research">Look more into constructor functions, built in constructor functions: Object , Array , and Function.... static methods, prototype properties, public/private methods, prototype chain</span></li>
+            <li>all objects ultimately inherit from the prototype of the <span class="word">Object()</span> constructor function.</li>
+            <li>When an object calls a method, the JavaScript engine will check to see if the object has that method. If it doesn’t, it will check if the object’s prototype has the method. If not, it will check whether the prototype’s prototype has it. This continues all the way up the prototype chain, until it reaches the prototype of the <span class="word">Object()</span> constructor function, from which all objects in JavaScript inherit. If the prototype of <span class="word">Object()</span> is without the method, an error will be returned saying the object doesn’t exist:</li>
+            <li><span class="examples">class NinjaTurtle extends Turtle {<br>
+                constructor(name) {<br>
+                    super(name);<br>
+                    this.weapon = 'hands';<br>
+                }<br>
+                attack() { return `Feel the power of my ${this.weapon}!` } <br>
+            }</span></li>
+            <li>The concept of <span class="word">polymorphism</span> means that different objects can have the same method, but implement it in different ways</li>
+            <li> avoid monkey-patching any of the built-in object constructor prototypes, unless you have a very good reason</li>
+            <li><span class="research">Look more into constructor functions, built in constructor functions: Object , Array , and Function.... static methods, prototype properties, public/private methods, prototype chain, enumeralbe properties, polymorphism, monkeypatch, property attributes and descriptors, init (), mixins, that and this, </span></li>
         </ul>
     </div> 
             
