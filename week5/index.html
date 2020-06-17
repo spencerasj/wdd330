@@ -42,16 +42,20 @@
                 // All your code would go inside this function<br>
             }());</span></li>
             <li><span class="word">Linting Tools</span> They are designed to highlight any sloppy programming practices or syntax errors, and will complain if certain style conventions are not followed, such as how code is indented </li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li><span class="research">Read more about: feature detection</span></li>
+            <li>The most basic form of debugging is to use the <span class="word">alert()</span> method to show a dialog at certain points in the code. Because <span class="word">alert()</span> stops a program from running until OK is clicked, it allows us to effectively put breakpoints in the code that let us check the value of variables at that point to see if they’re what we expect them to be.</li>
+            <li>We've already seen and used the <span class="word">console.log() method</span>. This can be used to log the value of variables at different stages of the program, although it will not actually stop the execution of the program in the same way as <span class="word">alert()</span> does</li>
+            <li>If we suspect a piece of code will result in an exception, we can wrap it in a <span class="word">try block</span>. This will run the code inside the block as normal, but if an exception occurs it will pass the error object that is thrown onto a <span class="word">catch block</span></li>
+            <li>A <span class="word">finally block</span> can be added after a <span class="word">catch block</span>. This will always be executed after the <span class="word">try or catch block</span>, regardless of whether an exception occurred or not. It is useful if you want some code to run in both cases</li>
+            <li>Testing is an important part of programming that can often be overlooked. Writing good tests means your code will be less brittle as it develops, and any errors will be identified early on.</li>
+            <li>Test-driven development(TDD) is the process of writing tests before any actual code. Obviously these tests will initially fail, because there is no code to test. The next step is to write some code to make the tests pass. After this, the code is refactored to make it faster, more readable, and remove any repetition. The code is continually tested at each stage to make sure it continues to work</li>
+            <li><span class="word">Write tests (that initially fail)<br>
+                Write code to pass the tests<br>
+                Refactor the code<br>
+                Test refactored code<br>
+                Write more tests for new features</span></li>
+            <li><span class="word">Testing frameworks</span> provide a structure to write meaningful tests and then run them.</li>
+            <li><span class="word">Jest</span> is a TDD framework, created by Facebook, that has gained a lot of popularity recently. It makes it easy to create and run tests by providing helper methods for common test assertions.</li>
+            <li><span class="research">Read more about: feature detection, all the types of error objects, throwing exceptions, exception handling</span></li>
         </ul>
     </div>
             
