@@ -28,6 +28,20 @@
     <h1>Notes on Testing and Debugging</h1>
     <div>
         <ul>
+            <li><span class="word">Errors</span> are caused when something goes wrong in a program</li>
+            <li><span class="word">System Error</span> ― there’s a problem with the system or external devices with which the program is interacting.</li>
+            <li><span class="word">Programmer Error</span> ― the program contains incorrect syntax or faulty logic; it could even be as simple as a typo.</li>
+            <li><span class="word">User Error</span> ― the user has entered data incorrectly, which the program is unable to handle.</li>
+            <li>An <span class="word">Exception</span> is an error that produces a return value that can then be used by the program to deal with the error. </li>
+            <li>An exception will also produce a<span class="word"> stack trace</span>. This is a sequence of functions or method calls that lead to the point where the error occurred.</li>
+            <li>A <span class="word">warning</span> can occur if there’s an error in the code that isn't enough to cause the program to crash.</li>
+            <li>ECMAScript 5 introduced a <span class="word">strict mode</span> that produces more exceptions and warnings and prohibits the use of some deprecated features.</li>
+            <li>Writing code in <span class="word">strict mode</span> can also help improve its clarity and speed, since it follows conventions and will throw exceptions if any sloppy code practices are used.</li>
+            <li>the recommended way to invoke strict mode is to place all your code into a self-invoking function<br><span class="examples">(function() {<br>
+                'use strict';<br>
+                // All your code would go inside this function<br>
+            }());</span></li>
+            <li><span class="word">Linting Tools</span> They are designed to highlight any sloppy programming practices or syntax errors, and will complain if certain style conventions are not followed, such as how code is indented </li>
             <li></li>
             <li></li>
             <li></li>
@@ -37,6 +51,7 @@
             <li></li>
             <li></li>
             <li></li>
+            <li><span class="research">Read more about: feature detection</span></li>
         </ul>
     </div>
             
