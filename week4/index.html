@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Week 2 Notes and Code Examples</title>
+    <title>Week 4 Notes and Code Examples</title>
     <link rel="stylesheet" href="main.css">
     <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet">
 </head>
@@ -96,6 +96,40 @@
             <li><span class="research">Look more into constructor functions, built in constructor functions: Object , Array , and Function.... static methods, prototype properties, public/private methods, prototype chain, enumeralbe properties, polymorphism, monkeypatch, property attributes and descriptors, init (), mixins, that and this, </span></li>
         </ul>
     </div> 
+    <h1>Notes: Modern JavaScript Development</h1>
+    <div>
+        <ul>
+            <li>A JavaScript <span class="word">library</span> is a piece of code that provides several methods that make it easier to achieve common tasks.</li>
+            <li><span class="word">jQuery</span> is the most popular of all the JavaScript libraries used today</li>
+            <li>It is used in a huge number of commercial websites and has a plugin system that makes it easy to extend and use to build common web page elements, such as a lightbox or carousel widget.</li>
+            <li><span class="word">jQuery</span> was released in 2006, originally as a DOM manipulation library. It has since grown much bigger, and now provides hundreds of methods for selecting nodes, as well as traversing the DOM, animation effects, Ajax and events. It also has its own testing library:QUnit.
+            A big advantage of using jQuery is its support for older browsers, particularly Internet Explorer.</li>
+            <li>The jQuery library uses the <span class="word">$</span> symbol as a convenient alias for the the global jQuery object that contains all of jQuery's methods. This prevents the global scope from being polluted with any of jQuery’s methods. The <span class="word">$</span> symbol has become synonymous with jQuery, and you can confidently expect that any mention of it implies that jQuery is being used.</li>
+            <li><span class="word">Underscore and Lodashare</span> very similar libraries of functions that provide additional functionality to the language. They both provide a large number of utility functions under the namespace <span class="word">_</span>(this is where they get their name from as the <span class="word">_</span> character is often referred to as an 'underscore' or a 'lodash')</li>
+            <li>Be careful not to rely on a library and find that you’re learning how to use the library's methods, rather than the language itself. A library should not be used because of a lack of understanding of JavaScript. Instead, it should be used to speed up JavaScript development by making it easier to complete common tasks. </li>
+            <li>The <span class="word">coupling</span> of code refers to how dependent certain elements or modules of code are on each other.</li>
+            <li>There are a few important points about modules that are worth keeping in mind:
+
+                All code in modules is always in strict mode without the need for 'use strict' and there is no way to opt out of this.
+                A module has its own global scope, so any variables created in the top-level of a module can only be accessed within that module.
+                The value of this in the top level of a module is undefined , rather than the global object.
+                You can't use HTML-style comments in modules (although this isn't very common in any JavaScript program these days).
+                A ES6 module file is just a normal JavaScript file, but uses the keyword export to specify any values or functions that are to be made available from the module. </li>
+            <li>Having more than one default export will result in a syntax error.</li>
+            <li><span class="word">Default exports</span> refer to a single variable, function or class in a module that can be imported without having to be explicitly named</li>
+            <li>The alias that is assigned to the imported module does not have to match its name in the actual module.</li>
+            <li><span class="word">Model-View-Controller (MVC) </span>is a design pattern that’s been used for a long time in server-side languages. It’s a common way of designing software, and used by server-side frameworks such as Ruby On Rails and Django. In recent years it has been used in JavaScript code to make it easier to organize large-scale web applications.</li>
+            <li><span class="word">Models</span> are objects that implement the functionality for creating, reading, updating and deleting (known as CRUD tasks) specific pieces of information about the application, as well as any other associated logic and behavior</li>
+            <li><span class="word">Views</span> provide a visual representation of the model showing all the relevant information. In a web application, this would be the HTML displayed on a web page. Views also provide a way for users to interact with an application, usually via forms</li>
+            <li><span class="word">Controllers</span> link models and views together by communicating between them. They respond to events, which are usually inputs from a user (entering some data into a form, for example), process the information, then update the model and view accordingly</li>
+            <li>One-way data binding is when a change in the model will automatically result in the view being updated. And two-way data binding is when a change in the view automatically updates the model.</li>
+            <li><span class="word">Templating languages</span> allow HTML to be separated from the JavaScript program, making maintenance easier because they’re no longer tightly coupled. The templates are often stored in separate files or inside their own script tags, so they can be reused and quickly edited in one place if changes need to be made</li>
+            <li><span class="word">Content delivery networks(CDNs)</span> are systems of distributed servers that can deliver web resources, such as JavaScript, CSS or image files to a user based on their geographic location. This means they’re able to deliver the content quickly and efficiently with a high degree of availability. </li>
+            <li>The solution is to combine all the scripts into a single minified and compressed file. This file is often named <span class="word">'bundle.min.js'</span> to signify that it’s a number of files bundled together and has also been minified</li>
+            <li><span class="word">Minification</span> is the process of removing any unnecessary characters from your code to reduce the file size. This includes all comments, whitespace, and other characters that are superfluous.</li>
+            <li><span class="research">reconciliation, react, package managers, npm repository, package.json, yarn, code transpilers, </span></li>
+        </ul>
+    </div>
             
     <footer>
         &copy; 2020 | Portfolio | Jennifer Spencer
