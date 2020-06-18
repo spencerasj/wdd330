@@ -1,0 +1,42 @@
+body {
+    max-width: 375px;
+    height: auto;
+    box-sizing: border-box;
+    font-family: 'Open Sans Condensed', sans-serif;
+    margin: 0px;
+    padding: 0px;
+}
+
+#header {
+    background-color: #7FC6A4;
+    text-align: center;
+    padding: 20px;
+    font-size: x-large;
+}
+
+h1 {
+    color: white;
+    margin: 0px;
+    padding-bottom: 5px;
+
+}
+
+#addText {
+    color: #55505C;
+    font-family: 'Open Sans Condensed', sans-serif;
+    padding: 3px 75px 3px 5px;
+    font-size: x-large;
+    margin-right: 10px;
+    border: 1px solid #5D737E;
+}
+
+button {
+    background-color: #5D737E;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-weight: bold;
+    padding: 4px 8px;
+    border: none;
+    color: white;
+    font-size: x-large;
+    border: 1px solid white;
+}
