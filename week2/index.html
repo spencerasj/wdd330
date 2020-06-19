@@ -153,25 +153,50 @@
                     console.log('You rolled a number less than four');
                     break;</span>}</li>
             <li>a ninja programmer always finishes a case block with a break !</li>
-            <li>You can place a loop inside another loop to create a <span class="word">nested loop</span>. It will have an inner loop that will run all the way through before the next step of the outer loop occurs.</li>
+            <li>You can place a loop inside another loop to create a <span class="word">nested loop</span>. It will have
+                an inner loop that will run all the way through before the next step of the outer loop occurs.</li>
         </ul>
     </div>
     <h1>Notes for Chapter 4: Functions</h1>
     <div>
         <ul>
-            <li>Another way of defining a function literal is to create a <span class="word">function expression</span>. This assigns ananonymous functionto a variable: <span class="examples">const goodbye = function(){
-                console.log('Goodbye World!');-------OR------ const goodbye = function bye(){console.log('Goodbye World!');}; };</span></li>
-            <li>A function can also be declared using the <span class="word">constructor Function()</span> . The body of the function is entered as a string, as shown in this example: <span class="examples">const hi = new Function('console.log("Hi World!");');</span></li>
-            <li>Don’t Repeat Yourself, or DRY, is a principle of programming that specifies that every part of a program should only be written once. This avoids duplication and means there’s no need to keep multiple pieces of code up to date and in sync.</li>
+            <li>Another way of defining a function literal is to create a <span class="word">function expression</span>.
+                This assigns ananonymous functionto a variable: <span class="examples">const goodbye = function(){
+                    console.log('Goodbye World!');-------OR------ const goodbye = function bye(){console.log('Goodbye
+                    World!');}; };</span></li>
+            <li>A function can also be declared using the <span class="word">constructor Function()</span> . The body of
+                the function is entered as a string, as shown in this example: <span class="examples">const hi = new
+                    Function('console.log("Hi World!");');</span></li>
+            <li>Don’t Repeat Yourself, or DRY, is a principle of programming that specifies that every part of a program
+                should only be written once. This avoids duplication and means there’s no need to keep multiple pieces
+                of code up to date and in sync.</li>
             <li> you need parentheses to invoke a function</li>
-            <li>All functions return a value, which can be specified using the return statement, which comes after the <span class="word">return</span> keyword. A function that doesn’t explicitly return anything (such as all the examples we have seen so far) will return undefined by default.</li>
-            <li><span class="word">Parameters and arguments</span> are terms that are often used interchangeably to represent values provided for the function as an input. There is a subtle difference though: any parameters a function needs are set when the function isdefined. When a function isinvoked, it is provided with arguments.</li>
-            <li>If too many arguments are provided when a function is invoked, the function will work as normal and the extra arguments will be ignored</li>
-            <li><span class="word">rest operator</span> can be used to deal with multiple arguments by creating an array of arguments that are available inside the body of the function.To use the rest operator, simply place three dots in front of the last parameter in a function declaration. This will then collect all the arguments entered into an array</li>
-            <li>Arrow functions can be identified by the 'arrow' symbol, => that gives them their name. The parameters come before the arrow and the main body of the function comes after. Arrow functions are always anonymous, so if you want to refer to them, you must assign them to a variable. For example, the square function we wrote earlier can be written like so <span class="examples">const square = x => x*x;</span></li>
-            <li><span class="word">Hoisting</span> is the JavaScript interpreter’s action of moving all variable and function declarations to the top of the current scope, regardless of where they are defined.</li>
-            <li>functions can also be given as a parameter to another function. A function that is passed as an argument to another is known as a <span class="word">callback</span></li>
-            <li><span class="word">the forEach() method</span>. This will loop through the array and invoke a callback function using each value as an argument. The callback function takes three parameters, the first represents the value in the array, the second represents the current index and the third represent the array that the callback is being called on.</li>
+            <li>All functions return a value, which can be specified using the return statement, which comes after the
+                <span class="word">return</span> keyword. A function that doesn’t explicitly return anything (such as
+                all the examples we have seen so far) will return undefined by default.</li>
+            <li><span class="word">Parameters and arguments</span> are terms that are often used interchangeably to
+                represent values provided for the function as an input. There is a subtle difference though: any
+                parameters a function needs are set when the function isdefined. When a function isinvoked, it is
+                provided with arguments.</li>
+            <li>If too many arguments are provided when a function is invoked, the function will work as normal and the
+                extra arguments will be ignored</li>
+            <li><span class="word">rest operator</span> can be used to deal with multiple arguments by creating an array
+                of arguments that are available inside the body of the function.To use the rest operator, simply place
+                three dots in front of the last parameter in a function declaration. This will then collect all the
+                arguments entered into an array</li>
+            <li>Arrow functions can be identified by the 'arrow' symbol, => that gives them their name. The parameters
+                come before the arrow and the main body of the function comes after. Arrow functions are always
+                anonymous, so if you want to refer to them, you must assign them to a variable. For example, the square
+                function we wrote earlier can be written like so <span class="examples">const square = x => x*x;</span>
+            </li>
+            <li><span class="word">Hoisting</span> is the JavaScript interpreter’s action of moving all variable and
+                function declarations to the top of the current scope, regardless of where they are defined.</li>
+            <li>functions can also be given as a parameter to another function. A function that is passed as an argument
+                to another is known as a <span class="word">callback</span></li>
+            <li><span class="word">the forEach() method</span>. This will loop through the array and invoke a callback
+                function using each value as an argument. The callback function takes three parameters, the first
+                represents the value in the array, the second represents the current index and the third represent the
+                array that the callback is being called on.</li>
         </ul>
     </div>
     <footer>

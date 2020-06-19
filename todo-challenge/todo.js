@@ -5,14 +5,23 @@ let items = [];
 function newElement() {
     let li = document.createElement("li");
     let text = document.getElementById("addText").value;
-    var t = document.createTextNode(text);
+    let t = document.createTextNode(text);
+    let trash = document.createElement("button");
+    let i = document.createElement("i");
     li.appendChild(t);
+    li.appendChild(trash);
+    trash.appendChild(i);
+    trash.classList.add("trash");
+
+    i.className += ("fa fa-trash-o fa-lg");
    
+
      if (text === '') {
       alert("Please enter in a task");
     } else {
       document.getElementById("list").appendChild(li);
-      items.push(t);
+      items.push(text);
+      console.log(items);
     }
     document.getElementById("addText").value = "";
  }
@@ -24,6 +33,9 @@ function newElement() {
         document.getElementById("submit").click();
     }
 }); 
+document.getElementByClassName("trash").addEventListener("click", function(event) {
+    event.target.parentNode.remove();});
+
 
 
 //  CODE FROM THE READING------------------------------------
