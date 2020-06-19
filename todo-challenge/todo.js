@@ -1,5 +1,29 @@
 'use strict'
+let items = [];
 
+// Create a new list item when clicking on the "Add" button
+function newElement() {
+    let li = document.createElement("li");
+    let text = document.getElementById("addText").value;
+    var t = document.createTextNode(text);
+    li.appendChild(t);
+   
+     if (text === '') {
+      alert("Please enter in a task");
+    } else {
+      document.getElementById("list").appendChild(li);
+      items.push(t);
+    }
+    document.getElementById("addText").value = "";
+ }
+ 
+ document.getElementById("submit").addEventListener("click", newElement);
+ document.getElementById("addText").addEventListener("keyup", function(event) {
+    event.preventDefault();
+    if (event.keyCode === 13) {
+        document.getElementById("submit").click();
+    }
+}); 
 
 
 //  CODE FROM THE READING------------------------------------

@@ -27,10 +27,10 @@ h1 {
     padding: 3px 75px 3px 5px;
     font-size: x-large;
     margin-right: 10px;
-    border: 1px solid #5D737E;
+    border: 1px solid ;
 }
 
-button {
+#submit {
     background-color: #5D737E;
     font-family: 'Open Sans Condensed', sans-serif;
     font-weight: bold;
@@ -39,4 +39,22 @@ button {
     color: white;
     font-size: x-large;
     border: 1px solid white;
+}
+
+#list li {
+    list-style-type: none;
+    margin-bottom: 10px;
+    color: #55505C;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: x-large;
+    border-top: 1px solid #FAF33E;
+    border-bottom: 1px solid #FAF33E;
+    padding: 5px 0px 5px 25px;
+}
+footer {
+    background-color: #7FC6A4;
+    text-align: center;
+    padding: 20px;
+    font-size: x-large;
+    color: white;
 }
