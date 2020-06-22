@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 7 Notes and Code Examples</title>
+    <link rel="stylesheet" href="main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav>
+        <ul id="navigation">
+            <li><a href="#" id="menu">&equiv; Menu</a></li>
+            <li><a href="https://spencerasj.github.io/wdd330/index.html">Home</a></li>
+            <li><a href="https://spencerasj.github.io/wdd330/week1/">Week 1</a></li>
+            <li><a href="https://spencerasj.github.io/wdd330/week2/">Week 2</a></li>
+            <li><a href="https://spencerasj.github.io/wdd330/week3/">Week 3</a></li>
+            <li><a href="https://spencerasj.github.io/wdd330/week4/">Week 4</a></li>
+            <li><a href="https://spencerasj.github.io/wdd330/week5/">Week 5</a></li>
+            <li><a href="https://spencerasj.github.io/wdd330/week6/">Week 6</a></li>
+            <li><a href="https://spencerasj.github.io/wdd330/week7/">Week 7</a></li>
+            <li><a href="https://spencerasj.github.io/wdd330/week8/">Week 8</a></li>
+            <li><a href="https://spencerasj.github.io/wdd330/week9/">Week 9</a></li>
+        </ul>
+    </nav>
+    <h1>Notes on Further Functions</h1>
+    <div>
+        <ul>
+            <li>An <span class="word">Immediately Invoked Function Expression– or IIFE – (pronounced 'iffy')</span> is
+                an anonymous function that, as the name suggests, is invoked as soon as it’s defined. This is easily
+                achieved by placing parentheses at the end of the function definition</li>
+            <li>Placing any code that uses the <span class="word">temporary variable</span> inside an IIFE will ensure
+                it’s only available while the IIFE is invoked, then it will disappea</li>
+            <li>An IIFE can be used to set up any <span class="word">initialization</span> code that there’ll be no need
+                for again. Because the code is only run once, there’s no need to create any reusable, named functions,
+                and all the variables will also be temporary. An IIFE will be invoked once, and can set up any
+                variables, objects and event handlers when the page loads</li>
+            <li>One of the problems with simply placing <span class="word">'use strict'</span> at the beginning of a
+                file is that it will enforce strict mode on all the JavaScript in the file, and if you’re using other
+                people’s code, there’s no guarantee that they’ve coded in strict mode.
+                To avoid this, the recommended way to use strict mode is to place all your code inside an IIFE,</li>
+            <li>The dynamic nature of JavaScript means that a function is able to not only call itself, but define
+                itself, and even redefine itself. This is done by assigning an anonymous function to a variable that
+                hasthe same name as the function</li>
+            <li>If any properties have previously been set on the function, these will be lost when the function
+                redefines itself. </li>
+            <li>A <span class="word">recursive function</span> is one that invokes itself until a certain condition is
+                met. It’s a useful tool to use when iterative processes are involved</li>
+            <li>Callbacks can be used to facilitate event-driven asynchronous programming. a callback can be created
+                that’s invoked when the event happens. This means that the code is able to run out of order,
+                orasynchronously. Events can be DOM events, such as the click and keyPress that we looked at in Chapter
+                7, but they can also be events such as the completion of a file download, data returned from a database,
+                or the result of a complex operation. By using callbacks, we ensure that waiting for these tasks to
+                complete doesn't hold up the execution of other parts of the program. Once the task has been completed,
+                the callback will be invoked before returning to the rest of the program</li>
+            <li><span class="word">JavaScript event-loop</span></li>
+            <li>The increase in the use of asynchronous programming in JavaScript has meant that more and more callbacks
+                are being used. This can result in messy and confusing 'spaghetti code'. This is when more than one
+                callback is used in the same function, resulting in a large number of nested blocks that are difficult
+                to comprehend.</li>
+            <li><span class="word">the error-firstcallback style</span> popularized by Node.js. In this coding pattern,
+                callbacks have two arguments. The first is the error argument, which is an error object provided if
+                something goes wrong when completing the operation. The second argument is any data returned by the
+                operation that can be used in the body of the callback.</li>
+            <li>A <span class="word">promise</span> represents the future result of an asynchronous operation</li>
+            <li>When a promise is created, it calls an asynchronous operation and is then said to be <span
+                    class="word">pending</span>. It remains in this state while the operation is taking place. At this
+                stage, the promise is said to be <span class="word">unsettled</span>. Once the operation has completed,
+                the promise is said to have been <span class="word">settled</span>. A settled promise can result in two
+                different outcomes:
+                <span class="word">Resolved</span> ― the asynchronous operation was completed successfully.
+                <span class="word">Rejected</span> ― the asynchronous operation didn’t work as expected, wasn't
+                successfully completed or resulted in an error.</li>
+            <li>A promise is created using a constructor function. This takes a function called anexecutoras an
+                argument. The executor initializes the promise and starts the asynchronous operation. It also accepts
+                two functions as arguments: the <span class="word">resolve()</span> function is called if the operation
+                is successful, and the <span class="word">reject()</span> function is called if the operation fails.
+            </li>
+            <li>Once a promise has been settled, the <span class="word">then()</span> method can be used to deal with
+                the outcome</li>
+            <li>Callbacks can be used to build more generalized functions. Instead of having lots of specific functions,
+                one function can be written that accepts a callback</li>
+            <li>We've just seen that functions can accept another function as an argument (a callback), but they can
+                also return a function</li>
+            <li><span class="word">Closures</span> are one of JavaScript’s most powerful features, but they can be
+                difficult to get your head around initially.</li>
+            <li>whenever a function is defined inside another function, the inner function will have access to any
+                variables that are declared in the outer function's scope.</li>
+            <li>A <span class="word">closure</span> is formed when the inner function is returned by the outer function,
+                maintaining access to any variables declared inside the enclosing function</li>
+            <li>A closure doesn't just have access to the value of a variable, it can also change the value of the
+                variable long after the function in which it was originally declared has been invoked.</li>
+            <li> A <span class="word">pure function</span> is a function that adheres to the following rules: <span class="examples">1) The return
+                    value of a pure function should only depend on the values provided as arguments. It doesn't rely on
+                    values from somewhere else in the program.
+
+                    2) There are no side-effects. A pure function doesn't change any values or data elsewhere in the
+                    program. It only makes non-destructive data transformations and returns new values, rather than
+                    altering any of the underlying data.
+
+                    3) Referential transparency. Given the same arguments, a pure function will always return the same
+                    result.
+
+                    In order to follow these rules, any pure function must have:
+
+                    At least one argument; otherwise the return value must depend on something other than the arguments
+                    of the function, breaking the first rule
+                    A return value; otherwise there’s no point in the function (unless it has changed something else in
+                    the program – in which case, it’s broken the 'no side-effects' rule).</span></li>
+            <li>Higher-order functions are functions that accept another function as an argument, or return another function as a result, or both.</li>
+            <li><span class="word">Currying</span> is a process that involves the partial application of functions.</li>
+            <li><span class="research">call(), why use a cache?, why anonymous function?,init-time branching,
+                    asynchronous programming, fulfillment and rejection functions, chaining multiple promises, async,
+                    await, try and catch, counter(), generators, </span></li>
+
+        </ul>
+    </div>
+    <h1>Ajax notes</h1>
+        <div>
+            <ul>
+                <li>Ajax is a technique that allows web pages to communicate asynchronously with a server, and it dynamically updates web pages without reloading. This enables data to be sent and received in the background, as well as portions of a page to be updated in response to user events, while the rest of the program continues to run</li>
+                <li> Ajax allows JavaScript to request resources from a server on behalf of the client. The resources requested are usually JSON data or small fragments of text or HTML rather than a whole web page</li>
+                <li><span class="word">Asynchronous JavaScript and XML:</span></li>
+                <li><span class="word">fetch()</span> method that only has one mandatory argument, which is the URL of the resource you wish to fetch.</li>
+                <li>The <span class="word">redirect()</span> method can be used to redirect to another URL. It creates a new promise that resolves to the response from the redirected URL</li>
+                <li>The <span class="word">blob()</span> method is used to read a file of raw data, such as an image or a spreadshee</li>
+                <li><span class="word">HTTP headers</span> are used to pass on any additional information about a request or response. Typical information contained in headers includes the file-type of the resource, cookie information, authentication information and when the resource was last modified.</li>
+                <li> It is common for sites to use spinners (or egg timers in the old days!) to indicate that the site is waiting for something to happen</li>
+                <li><span class="research">text(), creating response objects, request objects, Form data,  </span></li>
+            </ul>
+        </div>
+
+    <footer>
+        &copy; 2020 | Portfolio | Jennifer Spencer
+    </footer>
+    <script src="main.js"></script>
+</body>
+
+</html>

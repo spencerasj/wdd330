@@ -1,0 +1,60 @@
+body {
+    font-family: 'Architects Daughter', cursive;
+    color: #2f2f69;
+}
+.examples {
+    color: rgb(238, 77, 104);
+    font-weight: bold;
+    font-size: large;
+}
+h1{
+    text-align: center;
+    color: rgb(93, 138, 93);
+}
+.word {
+    color: rgb(250, 154, 9);
+    font-weight: bold;
+    font-size: large;
+}
+h1 {
+    font-family: 'Architects Daughter', cursive;
+    color: rgb(39, 130, 146);
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+nav ul li:first-child {
+    display: block;
+}
+nav ul li {
+    background-color: rgb(39, 130, 146);
+    border: 1px solid white;
+    display: none;
+    text-align: center;
+    font-family: 'Architects Daughter', cursive;
+}
+
+nav ul li a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: white;
+}
+
+.open li{
+    display: block;
+}
+.research {
+    color: purple;
+    font-weight: bold;
+    font-size: x-large;
+}
+footer {
+    font-family: 'Architects Daughter', cursive;
+    color: rgb(39, 130, 146);
+    text-align: center;
+}

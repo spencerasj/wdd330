@@ -1,7 +1,7 @@
 'use strict'
 let items = [];
 
-// Create a new list item when clicking on the "Add" button
+// Create a new list item when clicking on the "Add" button also added trash button
 function newElement() {
     let li = document.createElement("li");
     let text = document.getElementById("addText").value;
@@ -33,10 +33,25 @@ function newElement() {
         document.getElementById("submit").click();
     }
 }); 
-document.getElementByClassName("trash").addEventListener("click", function(event) {
-    event.target.parentNode.remove();});
+//document.getElementByClassName("trash").addEventListener("click", function(event) {
+   // event.target.parentNode.remove();});
 
 
+// ------------------Code for hiding task when trash clicked-------------------------
+//document.getElementsByClassName("trash").addEventListener("click", function(event) {
+   // event.target.parentNode.remove();});
+let close = document.getElementsByClassName("trash");
+/*let i;
+for (i = 0; i < close.length; i++) {
+  close[i].onclick = function() {
+    var div = this.parentElement;
+    div.style.display = "none";*/
+    items.forEach((item) => {
+    close(item).onClick = function() {
+        let li = this.parentElement;
+        li.style.display = "none";
+  }
+});
 
 //  CODE FROM THE READING------------------------------------
 /*'use strict'
