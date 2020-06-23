@@ -1,18 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Week 7 Notes and Code Examples</title>
+    <link rel="stylesheet" href="main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet">
 </head>
+
 <body>
-   <h1>Notes for Week 8</h1> 
-   <div>
-       <ul>
-           <li>
-               
-           </li>
-       </ul>
-   </div>
+    <nav>
+        <ul id="navigation">
+            <li><a href="#" id="menu">&equiv; Menu</a></li>
+            <li><a href="https://spencerasj.github.io/wdd330/index.html">Home</a></li>
+            <li><a href="https://spencerasj.github.io/wdd330/week1/">Week 1</a></li>
+            <li><a href="https://spencerasj.github.io/wdd330/week2/">Week 2</a></li>
+            <li><a href="https://spencerasj.github.io/wdd330/week3/">Week 3</a></li>
+            <li><a href="https://spencerasj.github.io/wdd330/week4/">Week 4</a></li>
+            <li><a href="https://spencerasj.github.io/wdd330/week5/">Week 5</a></li>
+            <li><a href="https://spencerasj.github.io/wdd330/week6/">Week 6</a></li>
+            <li><a href="https://spencerasj.github.io/wdd330/week7/">Week 7</a></li>
+            <li><a href="https://spencerasj.github.io/wdd330/week8/">Week 8</a></li>
+            <li><a href="https://spencerasj.github.io/wdd330/week9/">Week 9</a></li>
+        </ul>
+    </nav>
+    <h1>Notes on Further Functions</h1>
+    <div>
+        <ul>
+            <li>The CSS3 <span class="word">transform property</span> lets you lets you translate, rotate, scale, and/or
+                skew any element on the page</li>
+            <li>We can manipulate an element’s appearance using <span class="word">transform functions</span>. The value
+                of the <span class="word">transform property</span> is one or more<span class="word"> transform
+                    functions</span> (separated by spaces) that will be applied in the order they’re provided.</li>
+            <li><span class="word">Translation functions</span> allow you to move elements left, right, up, or down</li>
+            <li>a translated element can only be moved relative to its current position</li>
+            <li>The <span class="word">translate(x,y)</span> function moves an element <span class="word">x</span> from
+                the left, and <span class="word">y</span> from the top:</li>
+            <li>If you only want to move an element vertically or horizontally, you can use the <span
+                    class="word">translatex</span> or <span class="word">translatey</span> functions respectively.</li>
+            <li>The <span class="word">scale(x,y)</span> function scales an element by the defined factors horizontally
+                then vertically. If only one value is provided, it will be used for both the<span class="word"> x and y
+                    values</span>, growing or shrinking your element or pseudo-element while maintaining the original
+                aspect ratio. For example, <span class="word">scale(1) would leave the element the same size, scale(2)
+                    would double its proportions, scale(0.5) would halve them</span>, and so on</li>
+            <li>A scaled element will grow outwards from or shrink inwards towards its center; in other words, the
+                element’s center will stay in the same place as its dimensions change</li>
+            <li>you shouldn’t declare a new <span class="word">transform :</span> because of the cascade, a second
+                transform would override the first. To declare multiple transformations, provide a space-separated list
+                of transform functions. </li>
+            <li><span class="word">rotate() function</span> rotates an element around the point of origin by a specified
+                angle value</li>
+            <li>you can control the origin from which your transforms are applied. This is done using the <span
+                    class="word">transform-origin property</span>. It has the same syntax as the <span
+                    class="word">background-position property,</span> and defaults to the center of the object </li>
+            <li>The order of <span class="word">transform functions</span>does matter</li>
+            <li><span class="word">Transitions</span> allow the values of CSS properties to change over time,
+                essentially providing simple animations.</li>
+            <li>Here are the steps to create a simple transition using only CSS</li>
+            <li><span class="examples">Declare the original state of the element in the default style declaration.
+
+                    Declare the final state of your transitioned element; for example, a :hover state.
+
+                    Include the transition functions in your default style declaration using the transition properties,
+                    including: transition-property , transition-duration , transition-timing-function , and
+                    transition-delay.</span></li>
+            <li>The<span class="word"> transition-property property</span> defines the CSS properties of the element that should be transitioned</li>
+            <li>It is important to include a pre-state and a post-state</li>
+            <li>You can provide any number of CSS properties to the transition-property declaration, separated by commas. Alternatively, you can use the keyword all to indicate that every supported property should be animated as it transitions</li>
+            <li>In itself, <span class="word">the transition-property property</span> has no effect; that’s because we still need to specify the duration of the transition.</li>
+            <li><span class="word">transition-duration property</span> sets how long the transition will take. You can specify this either in <span class="word">seconds ( s ) or milliseconds ( ms )</span>.200ms is generally considered the optimum time for a transition</li>
+            <li>The <span class="word">transition-timing-function</span> lets you control the pace of the transition in even more granular detail</li>
+            <li> the <span class="word">transition-delay property</span>, it’s possible to introduce a delay before the transition begins.</li>
+            <li>The <span class="word">transition properties</span> allow for multiple transitions in one call</li>
+            <li>A <span class="word">transitionend event is fired upon completion of a CSS transition in both directions.</span>
+            <li><span class="word">CSS animations,</span> unlike transitions, allow you to control each step of an animation via <span class="word">keyframes</span></li>
+            <li>A <span class="word">keyframe</span> is a snapshot that defines a starting or end point of any smooth transition</li>
+            <li>Generally, it is best to use CSS for simple-state changes in a mobile environment. But it’s still better to employ JavaScript for intricate, stateful UIs, and when you do, you’ll likely want to use a JavaScript animation library to help with manageability and performance</li>
+            <li>To animate an element in CSS, you first create a named animation, then attach it to an element in that element’s property declaration block.</li>
+            <li>To create an animation, use the @keyframes rule for IE10+ and FF16+. Include @-webkit-keyframes for all WebKit implementations followed by a name of your choosing, which will serve as the identifier for the animation.</li>
+            <li>There are two keyterms― <span class="word">from and to</span> ―which evaluate to 0% and 100% respectively</li>
+            <li><span class="word">animation name</span>is used to attach an animation (previously defined using the @keyframes syntax) to an element:</li>
+            <li>The <span class="word">animation-duration property</span> defines the length of time (in seconds or milliseconds) an animation takes to complete one iteration (all the way through, from 0% to 100%)</li>
+            <li>While animation-name is the only required animation property to create an animation, the animation-duration shouldbe considered required to animate an element. Without declaring the duration it defaults to 0s, which is imperceptible, but still fires the animationstart and animationend events.</li>
+            <li><span class="word">animation-timing-function</span> determines how the animation will progress over its duration.</li>
+            <li>The <span class="word">animation-iteration-count property</span> lets you define how many times the animation will play through</li>
+            <li>The <span class="word">animation-fill-mode property</span> defines what happens before the first animation iteration begins and after the last animation iteration concludes.</li>
+            <li><span class="research">:invalid, :valid pseudo-classes,steps() function, animation direction</span></li>
+        </ul>
+    </div>
+    <h1>Notes for Canvas, SVG, and Drag and Drop</h1>
+    <div>
+        <ul>
+            <li>The first step to using <span class="word">canvas</span>is to add a canvas element to the page</li>
+            <li>The canvas element takes both a <span class="word">width and height attribute</span>, which must also be set</li>
+            <li>Canvas has no default styling, so it’s difficult to see where it is on the page unless you give it some kind of border:</li>
+            <li>All drawing on the canvas happens via the <span class="word">Canvas JavaScript API.</span></li>
+            <li>In a real-life painting canvas, you must first saturate your brush with paint before you can begin. In the HTML5 canvas, you must do the same, and we do so with the <span class="word">strokeStyle or fillStyle properties.</span> Both strokeStyle and fillStyle are set on a context object, and both take one of three values: a string representing a color, <span class="word">a CanvasGradient object, or a CanvasPattern object</span></li>
+            <li><span class="word">Paths</span> create a blueprint for your lines, arcs, and shapes, but paths are invisible until you give them a stroke</li>
+            <li><span class="word">Radians</span> are a unit used to measure angles, and the symbol π denotes a measurement in radians. One radian is equal to 180 degrees. Two radians, or 2π, are equal to 360 degrees.</li>
+            <li>If we create an image programmatically using the <span class="word">Canvas API</span>, but decide we’d like to have a local copy of our drawing, we can use the API’s  <span class="word">toDataURL method</span> to save our drawing.</li>
+            <li><span class="word">toDataURL</span> creates a URL with the image in it, (either a png or jpg, whichever is specified). You can then right-click the image at this URL, and save it as a PNG or JPEG</li>
+            <li><span class="word">SVG stands forScalable Vector Graphics</span>, a specific file format that allows you to describe vector graphics using XML. A major selling point of vector graphics in general is that, unlike bitmap images (such as GIF, JPEG, PNG, and TIFF), vector images preserve their quality even as you blow them up or shrink them down</li>
+            <li>Unlike canvas, images created with SVG are available via the DOM</li>
+            <li>One open source tool that you can use to make SVG images is <span class="word">Inkscape</span></li>
+            <li>A good resource to know about for public domain images is <span class="word"></span>http://openclipart.org/</span>, where you can find images that are free to use and free of copyright.</li>
+            <li><span class="word">Raphaëlis</span> an open-source JavaScript library that makes drawing and animating with SVG much easier.</li>
+            <li><span class="word">the Drag and Drop API</span> allows us to specify that certain elements are draggable, and then specify what should happen when these draggable elements are dragged over or dropped onto other elements on the page</li>
+            <li>There are several steps to adding drag and drop to your page: <span class="examples">Set the draggable attribute on any HTML elements you’d like to be draggable.
+
+                Add an event listener for the dragstart event on any draggable HTML elements.
+                
+                Add an event listener for the dragover and drop events on any elements that you want to have accept dropped items.</span></li>
+            <li><span class="research">getContext,</span></li>
+        </ul>
+    </div>
+    <footer>
+        &copy; 2020 | Portfolio | Jennifer Spencer
+    </footer>
+    <script src="main.js"></script>
 </body>
+
 </html>
