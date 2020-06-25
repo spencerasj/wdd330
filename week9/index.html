@@ -25,7 +25,59 @@
             <li><a href="https://spencerasj.github.io/wdd330/week9/">Week 9</a></li>
         </ul>
     </nav>
-   
+    <h1>Notes for The Window Object</h1>
+    <div>
+        <ul>
+            <li>The <span class="word">Browser Object Model (or BOM for short)</span> is a collection of properties and methods that contain information about the browser and computer screen</li>
+            <li>Remember that JavaScript can be run in different environments. The BOM only makes sense in a browser environment. </li>
+            <li><span class="word">the global object</span> is <span class="word">the window object</span>. This means that any global variable created is actually a property of the window object</li>
+            <li><span class="word">window.location property</span> is an object that contains information about the URL of the current page. </li>
+            <li>The <span class="word">href</span> property returns the full URL as a string</li>
+            <li>The <span class="word">protocol property</span> returns a string describing the protocol used <span class="examples">(such as http , https , pop2 , ftp etc.). Note that there is a colon ( : ) at the end</span></li>
+            <li>The <span class="word">host property</span> returns a string describing the domain of the current URL and the port number </li>
+            <li>The <span class="word">window.history property</span> can be used to access information about any previously visited pages in the current browser session. Avoid confusing this with the new HTML5<span class="word">History API</span></li>
+            <li>A new window can be opened using the <span class="word">window.open() method</span>. This takes the URL of the page to be opened as its first parameter, the window title as its second parameter, and a list of attributes as the third parameter.</li>
+            <li>Each window object contains a <span class="word">document object</span>. This object has properties and methods that deal with the page that has been loaded into the window</li>
+            <li><span class="word">Cookies</span> are small files that are saved locally on a user’s computer. They were invented by Netscape as a way of getting round HTTP being a stateless protocol. This means that a browser does not remember anything from one request to another. So every time a user visits a page, nothing about any previous visits is remembered. Cookies can be used to sidestep this problem by storing information that can then be retrieved between requests.</li>
+            <li>A restriction of cookies is that they can only be read by a web page from the same domain that set them. This is to stop sites being able to access information about users, such as other sites they have visited</li>
+            <li>Cookies can be used for personalizing a user’s browsing experience, storing user preferences, keeping track of user choices (such as a shopping cart), authentication and tracking users. </li>
+            <li>To create a cookie, you assign it to JavaScript’s “cookie jar”, using the <span class="word">document.cookie property</span></li>
+            <li>Cookies are session cookies by default. This means they are deleted once a browser session is finished (when the user closes the browser tab or window). Cookies can be made persistent ― that is, lasting beyond the browser session ― by adding "; expires=date" to the end of the cookie when it’s set</li>
+            <li>Adding the string <span class="word">; secure</span> to the end of a cookie will ensure it’s only transmitted over a secure HTTPS network:</li>
+            <li>Be careful when using a method that uses the this keyword with either of these timing methods. The binding of this is set to the window object, rather than the method’s object, so it can get some unexpected results</li>
+            <li>The <span class="word">setTimeOut() and setInterval()</span> methods can be used to animate elements on a web page.</li>
+            <li>In general, it is typically better to use CSS for any animation effects, although there may be times when JavaScript might be the better solution</li>
+            <li><span class="research">read more about timing functions, requestAnimationFrame</span></li>
+        </ul>
+    </div>
+    <h1>Notes for HTML5 API's</h1>
+    <div>
+        <ul>
+            <li>The <span class="word">data- attribute</span> is a way of embedding data in a web page using custom attributes that are ignored by the browser. They’re also private to a page, so are not intended to be used by an external service – their sole purpose is to be used by a JavaScript program</li>
+            <li>The <span class="word">Web Storage API </span>provides a key-value store on the client’s computer that is similar to using cookies but has fewer restrictions, more storage capacity, and is generally easier to use</li>
+            <li>The Web Storage API has some crucial differences with cookies:<span class="examples">Information stored isnotshared with the server on every request.
+
+                Information is available in multiple windows of the browser (but only if the domain is the same).
+                
+                Storage capacity limit is much larger than the 4KB limit for cookies ( There is no actual limit in the specification, but most browsers have a limit set at 5GB per domain.).
+                
+                Any data stored does not automatically expire as it does with cookies. This potentially makes cookies a better choice for something like showing a popup once a day.</span></li>
+            <li>The <span class="word">Geolocation API</span> is used to obtain the geographical position of the device. This means it can be used to find the user’s exact location, then link to nearby places or measure the speed at which the user is moving.</li>
+            <li><span class="word">Web workers</span> allow processes to be run in the background, adding support for concurrency in JavaScript.</li>
+            <li><span class="word">Websocket</span> is a new protocol that allows two-way communication with a server – also known as push messaging. This means that a connection is kept open and responses are ‘pushed’ to the client as soon as they are received.</li>
+            <li> it starts <span class="word">'wss://' instead of 'https://'</span> This is the secure protocol used by websockets instead of HTTP</li>
+            <li>The <span class="word">Notification API</span> allows you to show messages using the system's notifications. This is usually a popup in the corner of the screen, but it changes depending on the operating system</li>
+            <li>Audio and video clips also have a number of events that will fire when they occur, including: <span class="examples">The play event, which fires when the clip starts and when it resumes after a pause.
+
+                The pause event, which fires when the clip is paused.
+                
+                The volumechange event, which fires when the volume is changed.
+                
+                The loadedmetadata event, which we saw in the note above, and which fires when all the video's metadata has loaded.</span></li>
+            <li><span class="research">Research Local Storage,  dedicated vs shared workers vs service workers,</li>
+            <li>The list of APIs is constantly growing, and includes APIs for accessing a device’s camera, uploading files, accessing the battery status, handling push notifications, building drag-and-drop functionality, creating 3D effects with WebGL, and many more</li>
+            </ul>
+    </div>
     <footer>
         &copy; 2020 | Portfolio | Jennifer Spencer
     </footer>
