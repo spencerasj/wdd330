@@ -26,6 +26,72 @@
             <li><a href="https://spencerasj.github.io/wdd330/week10/">Week 10</a></li>
         </ul>
     </nav>
+    <h1>MDN: Validating forms</h1>
+    <div>
+        <ul>
+            <li>Before submitting data to the server, it is important to ensure all required form controls are filled out, in the correct format. This is called <span class="word">client-side form validation</span>, and helps ensure data submitted matches the requirements set forth in the various form controls</li>
+            <li><span class="word">client-side validation </span>should not be considered an exhaustive security measure!</li>
+            <li> why do we insist on validating our forms? There are three main reasons <span class="examples">We want to get the right data, in the right format. Our applications won't work properly if our users' data is stored in the wrong format, is incorrect, or is omitted altogether.
+                We want to protect our users' data. Forcing our users to enter secure passwords makes it easier to protect their account information.
+                We want to protect ourselves. There are many ways that malicious users can misuse unprotected forms to damage the application</span></li>
+            <li><span class="word">Built-in form validation</span> uses HTML5 form validation features it has better performance than JavaScript, but it is not as customizable as JavaScript validation.</li>
+            <li><span class="word">JavaScript validation</span> is coded using JavaScript. This validation is completely customizable, but you need to create it all (or use a library)</li>
+            <li><span class="word">validation attributes</span> on form elements <span class="examples">required: Specifies whether a form field needs to be filled in before the form can be submitted.
+                minlength and maxlength: Specifies the minimum and maximum length of textual data (strings)
+                min and max: Specifies the minimum and maximum values of numerical input types
+                type: Specifies whether the data needs to be a number, an email address, or some other specific preset type. 
+                pattern: Specifies a regular expression that defines a pattern the entered data needs to follow.</span></li>
+            <li>When an element is <span class="word">valid</span>, the following things are true: <span class="examples">The element matches the :valid CSS pseudo-class, which lets you apply a specific style to valid elements.
+                If the user tries to send the data, the browser will submit the form, provided there is nothing else stopping it from doing so (e.g., JavaScript).</span></li>
+            <li>When an element is <span class="word">invalid</span>, the following things are true:<span class="examples"> The element matches the :invalid CSS pseudo-class, and sometimes other UI pseudo-classes (e.g., :out-of-range) depending on the error, which lets you apply a specific style to invalid elements.
+                If the user tries to send the data, the browser will block the form and display an error message.</span></li>
+            <li>Another useful validation feature is the <span class="word">pattern attribute</span>, which expects a Regular Expression as its value. A <span class="word">regular expression (regex)</span> is a pattern that can be used to match character combinations in text strings, so regexs are ideal for form validation and serve a variety of other uses in JavaScript.</li>
+            <li>You can constrain the character length of all text fields created by <span class="word">input or textarea</span> by using the <span class="word">minlength and maxlength attributes</span>.</li>
+            <li>each time a user tries to submit an invalid form, the browser displays an error message. The way this message is displayed depends on the browser.</li>
+            <li>These automated messages have two drawbacks: <span class="examples">There is no standard way to change their look and feel with CSS.
+                They depend on the browser locale, which means that you can have a page in one language but an error message displayed in another language, as seen in the following Firefox screenshot.</span></li>
+            <li>the <span class="word">novalidate attribute</span> to turn off the browser's automatic validation; this lets our script take control over validation.</li>
+            <li>To validate a form without an API, ask yourself a few questions: <span class="examples">What kind of validation should I perform?  What should I do if the form doesn't validate?  How can I help the user to correct invalid data?</span></li>
+            <li><span class="research">constraint validation API, </span></li>
+        </ul>
+    </div>
+    <h1>Using Fetch</h1>
+    <div>
+        <ul>
+            <li>The <span class="word">Fetch API</span> provides a JavaScript interface for accessing and manipulating parts of the HTTP pipeline, such as requests and responses. It also provides a <span class="word">global fetch() method</span>that provides an easy, logical way to fetch resources asynchronously across the network.</li>
+            <li>The <span class="word">fetch specification</span> differs from <span class="word">jQuery.ajax()</span> in three main ways: <span class="examples">The Promise returned from fetch() won’t reject on HTTP error status even if the response is an HTTP 404 or 500. Instead, it will resolve normally (with ok status set to false), and it will only reject on network failure or if anything prevented the request from completing.
+                fetch() won't can receive cross-site cookies; you can’t can establish a cross site session using fetch. Set-Cookie headers from other sites are silently ignored.
+                fetch won’t send cookies, unless you set the credentials init option. (Since Aug 25, 2017. The spec changed the default credentials policy to same-origin. Firefox changed since 61.0b13.)</span></li>
+            <li>A basic fetch request:<br><span class="examples">fetch('http://example.com/movies.json')<br>
+                .then(response => response.json())<br>
+                .then(data => console.log(data));</span></li>
+            <li>The simplest use of <span class="word">fetch()</span> takes one argument — the path to the resource you want to fetch — and returns a promise containing the response (a Response object).</li>
+            <li>The <span class="word">fetch() </span>method can optionally accept a second parameter, an <span class="word">init object</span> that allows you to control a number of different settings</li>
+            <li>To cause browsers to send a request with credentials included, even for a cross-origin call, add credentials: <span class="word">'include' to the init object you pass to the fetch() method</span></li>
+            <li>Use fetch() to POST JSON-encoded data.</li>
+            <li>Files can be uploaded using an HTML <span class="word">input type="file"  input element, FormData() and fetch().</span></li>
+            <li>Files can be uploaded using an HTML <span class="word">input type="file" multiple /> input element, FormData() and fetch().</span></li>
+            <li>A <span class="word">fetch() promise</span> will reject with a <span class="word"></span>TypeError when a network error is encountered or CORS is misconfigured</span> on the server-side, although this usually means permission issues or similar — a 404 does not constitute a network error, for example. An accurate check for a successful fetch() would include checking that the promise resolved, then checking that the Response.ok property has a value of true. </li>
+            <li>Instead of passing a path to the resource you want to request into the fetch() call, you can create a request object using the <span class="word">Request() constructor</span>, and pass that in as a fetch() method argument:</li>
+            <li><span class="word">Request()</span> accepts exactly the same parameters as the fetch() method. You can even pass in an existing request object to create a copy of it:</li>
+            <li>The <span class="word">Headers interface</span> allows you to create your own headers object via the <span class="word">Headers() constructor</span>. A headers object is a simple multi-map of names to values</li>
+            <li>The same can be achieved by passing an array of arrays or an object literal to the constructor:</li>
+            <li>The contents can be queried and retrieved</li>
+            <li>Since headers can be sent in requests and received in responses, and have various limitations about what information can and should be mutable, headers objects have a <span class="word">guard property</span>.</li>
+            <li>Possible guard values are:<br><span class="examples">none: default.<br>
+                request: guard for a headers object obtained from a request (Request.headers).<br>
+                request-no-cors: guard for a headers object obtained from a request created with Request.mode no-cors.<br>
+                response: guard for a Headers obtained from a response (Response.headers).<br>
+                immutable: Mostly used for ServiceWorkers; renders a headers object read-only.</span></li>
+            <li>The most common response properties you'll use are:<br><span class="examples">Response.status — An integer (default value 200) containing the response status code.<br>
+                Response.statusText — A string (default value "OK"), which corresponds to the HTTP status code message.<br>
+                Response.ok — seen in use above, this is a shorthand for checking that status is in the range 200-299 inclusive. This returns a Boolean.</span></li>
+            <li>Both requests and responses may contain <span class="word">body data</span>.</li>
+            <li>Fetch API support can be detected by checking for the existence of <span class="word">Headers, Request, Response or fetch() on the Window or Worker scope</span></li>
+            <li>To use Fetch in unsupported browsers, there is a <span class="word">Fetch Polyfill</span> available that recreates the functionality for non-supporting browsers.</li>
+            <li><span class="research">Processing a text file line by line,</span></li>
+        </ul>
+    </div>
     
     <footer>
         &copy; 2020 | Portfolio | Jennifer Spencer
