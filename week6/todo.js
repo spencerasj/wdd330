@@ -3,23 +3,23 @@ let items = [];
 
 // Create a new list item when clicking on the "Add" button also added trash button
 function newElement() {
+    let ul = document.getElementById("tasks");
     let li = document.createElement("li");
     let text = document.getElementById("addText").value;
     let t = document.createTextNode(text);
     let trash = document.createElement("button");
     let i = document.createElement("i");
-    li.appendChild(t);
-    li.appendChild(trash);
+ //  ** li.addEventListener
+    i.className += ("fa fa-trash-o fa-lg"); 
+    li.appendChild(t);   
     trash.appendChild(i);
     trash.classList.add("trash");
-
-    i.className += ("fa fa-trash-o fa-lg");
-   
+    li.appendChild(trash);
+    ul.appendChild(li);
 
      if (text === '') {
       alert("Please enter in a task");
     } else {
-      document.getElementById("list").appendChild(li);
       items.push(text);
       console.log(items);
     }
@@ -33,26 +33,28 @@ function newElement() {
         document.getElementById("submit").click();
     }
 }); 
-//document.getElementByClassName("trash").addEventListener("click", function(event) {
-   // event.target.parentNode.remove();});
 
 
 // ------------------Code for hiding task when trash clicked-------------------------
-//document.getElementsByClassName("trash").addEventListener("click", function(event) {
-   // event.target.parentNode.remove();});
-let close = document.getElementsByClassName("trash");
-/*let i;
-for (i = 0; i < close.length; i++) {
-  close[i].onclick = function() {
-    var div = this.parentElement;
-    div.style.display = "none";*/
-    items.forEach((item) => {
-    close(item).onClick = function() {
-        let li = this.parentElement;
-        li.style.display = "none";
+/*function close() {
+    let trashBtn = document.getElementsByClassName("trash");
+    if (trashBtn.style.display === "none") {
+      trashBtn.style.display = "block";
+    } else {
+      trashBtn.style.display = "none";
+    }
   }
-});
+document.getElementsByClassName("trash").addEventListener("click", close());*/
 
+
+
+//---------------Code for crossing item off list------------------------------------
+let list = document.querySelector('li');
+list.addEventListener('click', function(ev) {
+  if (ev.target.tagName === 'li') {
+    ev.target.classList.toggle('checked');
+  }
+}, false);
 //  CODE FROM THE READING------------------------------------
 /*'use strict'
 const form = document.forms[0];
