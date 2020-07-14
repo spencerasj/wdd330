@@ -84,14 +84,14 @@ footer {
     color: white;
 }
 /* When clicked on, add a background color and strike out text */
-ul li.checked {
+#tasks li.checked {
     background: #888;
     color: #fff;
     text-decoration: line-through;
   }
   
   /* Add a "checked" mark when clicked on */
-  ul li.checked::before {
+#tasks li.checked::before {
     content: '';
     position: absolute;
     border-color: #fff;
