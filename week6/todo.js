@@ -29,7 +29,9 @@ function newElement() {
   } else {
     items.push(text);
     console.log(items);
-    //---------------------------------Code for local storage---------------------------// 
+
+    //---------------------------------Code for local storage---------------------------
+
   localStorage.setItem("tasks", JSON.stringify(items));
     const data = JSON.parse(localStorage.getItem('tasks'))
   }
@@ -44,7 +46,9 @@ document.getElementById("addText").addEventListener("keyup", function (event) {
   };
 
 });
+
 // ------------------Code for clear all button-------------------------
+
 function clear() {
   let deleteList = document.getElementById('tasks');
   while (deleteList.hasChildNodes()) {
@@ -53,7 +57,9 @@ function clear() {
   }
 };
 document.getElementById("clearAll").addEventListener('click', clear);
+
 //---------------Code for check item off list------------------------------------
+
 function addClass() {
   let li = document.querySelectorAll('li');
   li.classList.add("checked");
@@ -65,7 +71,9 @@ list.addEventListener('click', function (ev) {
     ev.target.classList.toggle('checked');
   }
 }, false);
-//---------------------------code to delete item------------------------------//
+
+//---------------------------code to delete item------------------------------
+
 /*function deleteTask() {
   let deleteTask = document.getElementsByClassName('trash');
   while (deleteTask.hasParentNodes()) {
@@ -82,40 +90,7 @@ for (i = 0; i < close.length; i++) {
     li.parentNode.removeChild(node.parentNode);
   }
 };
-//  CODE FROM THE READING------------------------------------
-/*'use strict'
-const form = document.forms[0];
-class Item {
-    constructor(name) {
-        this.name = name;
-    }
-}
 
-const controller = {
-    watch(form) {
-        form.addEventListener('submit', (event) => {
-        event.preventDefault(); // prevent the form from being submitted
-        this.add(form.name.value);
-        }, false);
-    },
-    add(name) {
-        const item = new Item(name);
-        view.render(item);
-    }
-};
-
-const view = {
-    render(item) {
-        const list = document.getElementById('list');
-        const li = document.createElement('li');
-        li.innerHTML = item.name;
-        list.appendChild(li);
-        // reset the input field
-        form.name.value = '';
-    }
-};
-
-controller.watch(form);*/
 /*----------------------------------BROTHER THAYNE VIDEO HELPS--------------------------------------------*/
 //todo.js
 /*export class Todo {
