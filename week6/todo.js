@@ -14,7 +14,8 @@ function newElement() {
   li.appendChild(t);
   trash.appendChild(i);
   trash.classList.add("trash");
-  trash.setAttribute("id", Date.now())
+  li.setAttribute("id", Date.now());
+  // li.classList.add("checked");
   li.appendChild(trash);
   ul.appendChild(li);
 
@@ -24,7 +25,7 @@ function newElement() {
     items.push(text);
     console.log(items);
     //---------------------------------Code for local storage---------------------------// 
-    localStorage.setItem("tasks", JSON.stringify(items));
+  localStorage.setItem("tasks", JSON.stringify(items));
     const data = JSON.parse(localStorage.getItem('tasks'))
   }
   document.getElementById("addText").value = "";
@@ -36,6 +37,7 @@ document.getElementById("addText").addEventListener("keyup", function (event) {
     document.getElementById("submit").click();
 
   };
+
 });
 // ------------------Code for clear all button-------------------------
 function clear() {
@@ -47,16 +49,32 @@ function clear() {
 };
 document.getElementById("clearAll").addEventListener('click', clear);
 //---------------Code for check item off list------------------------------------
-function checkItem(event) {
-  //let list = document.querySelectorAll('ul');
-  let item = event.target;
-  if (item.target.tagName === 'LI') {
-    item.target.classList.toggle('checked');
-  } else {
-    false;
+function addClass() {
+  let li = document.querySelectorAll('li');
+  li.classList.add("checked");
+}
+var list = document.querySelector('ul');
+list.addEventListener('click', addClass);
+list.addEventListener('click', function (ev) {
+  if (ev.target.tagName === 'LI') {
+    ev.target.classList.toggle('checked');
   }
+}, false);
+//---------------------------code to delete item------------------------------//
+/*function deleteTask() {
+  let ul = document.querySelectorAll("ul");
+  ul.removeChild("li");
 };
-document.querySelector("ul").addEventListener('click', checkItem(event));
+let trash = document.getElementsByClassName("trash");
+trash.addEventListener('click', deleteTask);*/
+//var trash = document.getElementsByClassName('trash');
+//trash.addEventListener('click', addClass);
+document.querySelectorAll('trash').addEventListener('click', function (ev) {
+  if (ev.target.tagName === 'button') {
+    ev.target.node.parentNode.parentNode.removeChild(node.parentNode);
+  }
+}, false);
+
 //  CODE FROM THE READING------------------------------------
 /*'use strict'
 const form = document.forms[0];

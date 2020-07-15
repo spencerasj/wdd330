@@ -83,22 +83,30 @@ footer {
     font-size: x-large;
     color: white;
 }
+  /* make the list items unselectable */
+  ul li {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  }
 /* When clicked on, add a background color and strike out text */
-#tasks li.checked {
-    background: #888;
-    color: #fff;
+ul li.checked {
+    background: RGBA(214, 248, 214, .5);
+    color: white;
     text-decoration: line-through;
+    text-decoration-color: #55505C;
   }
   
   /* Add a "checked" mark when clicked on */
-#tasks li.checked::before {
+  ul li.checked::before {
     content: '';
     position: absolute;
-    border-color: #fff;
+    border-color: #55505C;
     border-style: solid;
     border-width: 0 2px 2px 0;
     top: 10px;
-    left: 16px;
+    left: 10px;
     transform: rotate(45deg);
     height: 15px;
     width: 7px;
