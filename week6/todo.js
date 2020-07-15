@@ -14,11 +14,16 @@ function newElement() {
   li.appendChild(t);
   trash.appendChild(i);
   trash.classList.add("trash");
+  trash.setAttribute("type", "submit");
   li.setAttribute("id", Date.now());
   // li.classList.add("checked");
   li.appendChild(trash);
+  trash.addEventListener('click', function() {
+    let li = this.parentNode;
+    trash.remove(li);
+    alert("did something");
+  });
   ul.appendChild(li);
-
   if (text === '') {
     alert("Please enter in a task");
   } else {
@@ -62,19 +67,21 @@ list.addEventListener('click', function (ev) {
 }, false);
 //---------------------------code to delete item------------------------------//
 /*function deleteTask() {
-  let ul = document.querySelectorAll("ul");
-  ul.removeChild("li");
-};
-let trash = document.getElementsByClassName("trash");
-trash.addEventListener('click', deleteTask);*/
-//var trash = document.getElementsByClassName('trash');
-//trash.addEventListener('click', addClass);
-document.querySelectorAll('trash').addEventListener('click', function (ev) {
-  if (ev.target.tagName === 'button') {
-    ev.target.node.parentNode.parentNode.removeChild(node.parentNode);
+  let deleteTask = document.getElementsByClassName('trash');
+  while (deleteTask.hasParentNodes()) {
+    deleteList.node.parentNode.parentNode.removeChild(deleteList.node.parentNode);
   }
-}, false);
-
+};
+document.querySelectorAll("trash").addEventListener('click', deleteTask);
+*/
+let close = document.getElementsByClassName("trash");
+let i;
+for (i = 0; i < close.length; i++) {
+  close[i].onclick = function() {
+    let li = this.parentElement;
+    li.parentNode.removeChild(node.parentNode);
+  }
+};
 //  CODE FROM THE READING------------------------------------
 /*'use strict'
 const form = document.forms[0];
