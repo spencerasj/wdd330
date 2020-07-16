@@ -5,6 +5,8 @@ import {
 let todos = [];
 let content = document.getElementById("addText");
 
+//-----------------------------------------add task-------------------------------------
+
 document.getElementById("submit").addEventListener("click", function (event) {
     event.preventDefault();
     let todo = new Todo(content.value);
@@ -17,6 +19,7 @@ document.getElementById("addText").addEventListener("keyup", function (event) {
     if (event.keyCode === 13) {
         event.preventDefault();
         document.getElementById("submit").click();
+        document.getElementById("addText").value = "";
     }
 });
 
@@ -25,46 +28,43 @@ function outputTodos() {
 
     todos.forEach(
         todo => {
-            if (todo.Completed) {
-                document.querySelector("#tasks").innerHTML +=
-                    `<li id="${todo.Id}" class="checked">${todo.Content}</li>`
-            
-
-            } else {
-                document.querySelector("#tasks").innerHTML +=
-                    `<li id="${todo.Id}">${todo.Content}</li>`
-               
-            }
+            document.querySelector("#tasks").innerHTML +=
+                `<li id="${todo.Id}">${todo.Content}<button class="trash"><i class="fa fa-trash-o fa-lg"></i></button></li>`
         });
 };
-// todo.appendChild
-// document.querySelectorAll("li").innerHTML +=
-// `<button class="trash" type="submit"><i class="fa fa-trash-o fa-lg"></i></button>`
-
-document.getElementById("tasks").addEventListener('click', function (event) {
-    console.log(event.target);
-    let id = event.target.id;
-    let todo = todos.find(t => t.Id == id);
-    if (todo) {
-        todo.Completed = 1;
-    }
-    event.target.classList.toggle('checked');
-    console.log(todos);
-    outputTodos();
-});
-let li = document.querySelectorAll("li");
-let trash = document.createElement("button");
-let i = document.createElement("i");
-i.className += ("fa fa-trash-o fa-lg");
-li.appendChild(t);
-trash.appendChild(i);
-trash.classList.add("trash");
-trash.setAttribute("type", "submit");
-li.appendChild(trash);
-//trash.addEventListener('click', function() {
+//---------------------------------------------------------code to check off item---------------------------------------------
 const list = document.getElementById("tasks");
-const addTask = document.getElementById("submit");
-const removeTask = document.getElementById("trash");
-const complete = document.getElementById("complete");
-const undone = document.getElementById("unfinished");
-const clearList = document.getElementById("clearall");
+list.addEventListener('click', function (event) {
+    console.log(event.target);
+    if (event.target.tagName === 'LI') {
+        event.target.classList.toggle('checked');
+    }
+}, false);
+
+//--------------------------------------------------------code to delete item-------------------------------------------------
+document.querySelectorAll(".trash").forEach(item => {
+    item.addEventListener('click', function (event) {
+        console.log(event.target);
+        if (event.target.tagName === 'I') {
+            event.target.parentElement.parentElement.remove();
+        }
+    }, false);
+})
+
+//----------------------------------------------------------code to clear all items from list-----------------------------------------
+// let li = document.querySelectorAll("li");
+// let trash = document.createElement("button");
+// let i = document.createElement("i");
+// i.className += ("fa fa-trash-o fa-lg");
+// li.appendChild(t);
+// trash.appendChild(i);
+// trash.classList.add("trash");
+// trash.setAttribute("type", "submit");
+// li.appendChild(trash);
+// //trash.addEventListener('click', function() {
+
+// const addTask = document.getElementById("submit");
+// const removeTask = document.getElementById("trash");
+// const complete = document.getElementById("complete");
+// const undone = document.getElementById("unfinished");
+// const clearList = document.getElementById("clearall");
