@@ -4,7 +4,8 @@ import {
 
 let todos = [];
 let content = document.getElementById("addText");
-
+let complete = [];
+let incomplete = [];
 //-----------------------------------------add task-------------------------------------
 
 document.getElementById("submit").addEventListener("click", function (event) {
@@ -43,10 +44,16 @@ list.addEventListener('click', function (event) {
         let todo = todos.find(t => t.Id == id);
         if (todo) {
             todo.Completed = !todo.Completed;
+
+            if (todo.Completed === 1) {
+                complete.push(todo);
+            } else {
+                incomplete.push(todo);
+            }
+            console.log(todos);
         }
-        console.log(todos);
-    }
-//--------------------------------------------------------code to delete item-------------------------------------------------
+    };
+    //--------------------------------------------------------code to delete item-------------------------------------------------
     if (event.target.tagName == "I") {
         let li = event.target.parentNode.parentNode;
         console.log(li);
@@ -95,19 +102,31 @@ list.addEventListener('click', function (event) {
 // );
 
 //const data = JSON.parse(localStorage.getItem('todos'))
-
-
-
+//----------------------------------------------------------filter completed tasks-------------------------------------------------
+// function completedTasksList() {
+//     let complete = [];
+//     let todo = todos.find(t => t.Completed == 1);
+//     complete.push(todo);
+//     console.log(completed);
+//     // if todos.filter(todo.Completed);
+//     //     console.log(todos);
+// };
+document.getElementById("complete").addEventListener('click', function (e) {
+    if (event.target.tagName === "BUTTON") {
+        console.log(complete);
+    }
+});
 //----------------------------------------------------------code to clear all items from list-----------------------------------------
-// function clear() {
-//     let deleteList = document.getElementById('tasks');
-//     while (deleteList.hasChildNodes()) {
-//       deleteList.removeChild(deleteList.firstChild);
-//       localStorage.clear();
-//     }
-//   };
-//   document.getElementById("clearAll").addEventListener('click', clear);
-  
+function clear() {
+    let deleteList = document.getElementById('tasks');
+    while (deleteList.hasChildNodes()) {
+        deleteList.removeChild(deleteList.firstChild);
+        let todos = [];
+        localStorage.clear();
+    }
+};
+document.getElementById("clearAll").addEventListener('click', clear);
+
 
 
 // const addTask = document.getElementById("submit");
