@@ -1,0 +1,8 @@
+section {
+    text-align: center;
+}
+.addButtons {
+    display: inline-block;
+    padding: 5px;
+    margin: 10px;
+}
