@@ -6,9 +6,6 @@ const content = document.getElementById("addText");
 let todos = [];
 localStorage.setItem('todos', JSON.stringify(todos));
 const data = JSON.parse(localStorage.getItem('todos'));
-// let todos = localStorage.getItem('todo')
-//   ? JSON.parse(localStorage.getItem('items'))
-//   : []
 
 //-----------------------------------------add task-------------------------------------
 
@@ -70,16 +67,7 @@ list.addEventListener('click', function (event) {
     }
 }, false);
 
-// document.querySelector('#tasks').addEventListener('click',
-//     (e) => {
-//         let id = e.target.id;
-//         let todo = todos.find(t => t.Id == id);
-//         if (todo) {
-//             todo.Completed = !todo.Completed;
-//         }
-//         console.log(todos);
-//     }
-// );
+
 
 
 //----------------------------------------------------------filter completed tasks-------------------------------------------------
@@ -104,7 +92,7 @@ function outputNotComplete() {
         item => {
             document.querySelector("#tasks").innerHTML +=
                 `<li>Not completed:   ${item.Content}</li>`
-            ////////////////////////////////////////////////////////////////////////////if time create a way to move this to completed list if checked////
+           
         });
 };
 document.getElementById("unfinished").addEventListener('click', outputNotComplete);
@@ -126,8 +114,3 @@ document.getElementById("clearAll").addEventListener('click', clear);
 
 
 
-// const addTask = document.getElementById("submit");
-// const removeTask = document.getElementById("trash");
-// const complete = document.getElementById("complete");
-// const undone = document.getElementById("unfinished");
-// const clearList = document.getElementById("clearall");
