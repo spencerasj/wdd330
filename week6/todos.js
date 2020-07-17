@@ -2,8 +2,13 @@ import {
     Todo
 } from './todo.js';
 
+const content = document.getElementById("addText");
 let todos = [];
-let content = document.getElementById("addText");
+localStorage.setItem('todos', JSON.stringify(todos));
+const data = JSON.parse(localStorage.getItem('todos'));
+// let todos = localStorage.getItem('todo')
+//   ? JSON.parse(localStorage.getItem('items'))
+//   : []
 
 //-----------------------------------------add task-------------------------------------
 
@@ -45,6 +50,7 @@ list.addEventListener('click', function (event) {
         if (todo) {
             todo.Completed = !todo.Completed;
             console.log(todos);
+            localStorage.setItem('todos', JSON.stringify(todos));
         }
     };
 
@@ -54,11 +60,13 @@ list.addEventListener('click', function (event) {
         console.log(li);
         let id = li.id;
         let todo = todos.find(t => t.Id == id);
-        if (id === todo);
+        if (todo) {
         let index = todos.indexOf(todo);
         todos.splice(index, 1);
+        localStorage.setItem('todos', JSON.stringify(todos));
         li.remove();
         console.log(todos);
+        }
     }
 }, false);
 
@@ -82,7 +90,7 @@ function outputComplete() {
     items.forEach(
         item => {
             document.querySelector("#tasks").innerHTML +=
-                `<li>You completed = ${item.Content}</li>`
+                `<li>You have completed:    ${item.Content}</li>`
         });
 };
 document.getElementById("complete").addEventListener('click', outputComplete);
@@ -95,7 +103,8 @@ function outputNotComplete() {
     items.forEach(
         item => {
             document.querySelector("#tasks").innerHTML +=
-                `<li>You have not completed = ${item.Content}</li>`
+                `<li>Not completed:   ${item.Content}</li>`
+            ////////////////////////////////////////////////////////////////////////////if time create a way to move this to completed list if checked////
         });
 };
 document.getElementById("unfinished").addEventListener('click', outputNotComplete);
@@ -104,10 +113,13 @@ document.getElementById("unfinished").addEventListener('click', outputNotComplet
 
 function clear() {
     let deleteList = document.getElementById('tasks');
-    while (deleteList.hasChildNodes()) {
+    while (deleteList.firstChild) {
         deleteList.removeChild(deleteList.firstChild);
-        let todos = [];
+        // let todos = [];
         localStorage.clear();
+        todos.splice(0, todos.length);
+        
+       
     }
 };
 document.getElementById("clearAll").addEventListener('click', clear);
