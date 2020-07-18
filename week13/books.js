@@ -2,99 +2,100 @@ import {
     Book
 } from './book.js';
 
+const content = document.getElementById("bookName");
 let books = [];
 localStorage.setItem('books', JSON.stringify(books));
 const data = JSON.parse(localStorage.getItem('books'));
 
 //-----------------------------------------add book to have read list-------------------------------------
 
-const name = document.getElementById("bookName");
-document.getElementById("readBook").addEventListener("click", function (event) {
+document.getElementById("addBook").addEventListener("click", function (event) {
     event.preventDefault();
-    let book1 = new Book(name.value);
-    books.push(book1);
-    console.log(book1.Id);
-    let id = book1.Id;
-    let book = books.find(b => b.Id == id);
-    if (book) {
-        book.Read = !book.Read;
+    let book = new Book(content.value);
+    books.push(book);
+    localStorage.setItem("books", JSON.stringify(books));
+    console.log(books);
+    outputBooks();
+    document.getElementById("bookName").value = "";
+    // document.getElementById("abookName").value = "";
+});
+
+document.getElementById("bookName").addEventListener("keyup", function (event) {
+    if (event.keyCode === 13) {
+        event.preventDefault();
+        document.getElementById("addBook").click();
+        document.getElementById("bookName").value = "";
     }
-    outputReadBooks(id);
-    localStorage.setItem('books', JSON.stringify(books));
-    console.log(books);
-    document.getElementById("bookName").value = "";
-
 });
 
-function outputReadBooks(bookId) {
-    let id = bookId;
-    let items = books.filter(book => book.Id == id);
+function outputBooks() {
+
+    document.querySelector("#wantToRead").innerHTML = "";
+
+    books.forEach(
+        book => {
+            document.querySelector("#wantToRead").innerHTML +=
+                `<li id="${book.Id}">${book.Name}
+                        <button id="addToReadList">Have you read this?</button>
+                       </li>`
+        }
+    );
+    document.getElementById("addToReadList").addEventListener('click', function (event) {
+        console.log(event.target);
+        if (event.target.tagName === 'BUTTON') {
+            //event.target.classList.toggle('checked');
+            let id = event.target.parentNode.id;
+            let book = books.find(t => t.Id == id);
+            if (book) {
+                book.Read = !book.Read;
+
+                console.log(books);
+                readList();
+                localStorage.setItem('books', JSON.stringify(books));
+                let li = event.target.parentNode;
+                console.log(li);
+                li.remove();
+            }
+        };
+
+    });
+};
+//---------------------------------move li item if it was read----------------------
+
+function readList() {
+
+    document.querySelector("#read").innerHTML = "";
+    let items = books.filter(book => book.Read == 1);
+    console.log(items);
+    //console.log(items.Read === 1);
+    //if (items.Read === 1) {
     items.forEach(
         item => {
-            document.getElementById("read").innerHTML +=
+            document.querySelector("#read").innerHTML +=
                 `<li id="${item.Id}">${item.Name}</li>`
-        }
-    )
+            // });
+            localStorage.setItem('books', JSON.stringify(books));
+
+        })
 };
+// let items2 = books.filter(book => book.Read == 0);
+// if (items2.Read === 0) {
+//     items2.forEach(
+//         item2 => {
+//             document.querySelector("#wantToRead").innerHTML +=
+//                 `<li id="${item2.Id}">${item2.Name}</li>`
+//         }
 
-//-----------------------------------------add book to currently reading list-------------------------------------
+//     )
 
-document.getElementById("readingBook").addEventListener("click", function (event) {
-    event.preventDefault();
-    let book1 = new Book(name.value);
-    books.push(book1);
-    console.log(book1.Id);
-    let id = book1.Id;
-    let book = books.find(b => b.Id == id);
-    if (book) {
-        book.Read = !book.Read;
-        book.toRead = !book.toRead;
-    }
-    outputCurrentBooks(id);
-    localStorage.setItem('books', JSON.stringify(books));
-    console.log(books);
-    document.getElementById("bookName").value = "";
-
-});
-
-function outputCurrentBooks(bookId) {
-    let id = bookId;
-    let items = books.filter(book => book.Id == id);
-    items.forEach(
-        item => {
-            document.getElementById("readingNow").innerHTML +=
-                `<li id="${item.Id}">${item.Name}</li>`
-        }
-    )
-};
+// }
 
 
-//-----------------------------------------add book to want to read list-------------------------------------
+// let todo = todos.find(t => t.Id == id);
+// if (todo) {
+// let index = todos.indexOf(todo);
+// let newList = todos.slice(index, 1);
 
-document.getElementById("wantToReadBook").addEventListener("click", function (event) {
-    event.preventDefault();
-    let book1 = new Book(name.value);
-    books.push(book1);
-    console.log(book1.Id);
-    let id = book1.Id;
-    let book = books.find(b => b.Id == id);
-    outputWantToReadBooks(id);
-    localStorage.setItem('books', JSON.stringify(books));
-    console.log(books);
-    document.getElementById("bookName").value = "";
 
-});
-
-function outputWantToReadBooks(bookId) {
-    let id = bookId;
-    let items = books.filter(book => book.Id == id);
-    items.forEach(
-        item => {
-            document.getElementById("wantToRead").innerHTML +=
-                `<li id="${item.Id}">${item.Name}</li>`
-        }
-    )
-};
-
-// fixes:
-// do I need t/f
+// function deleteFromList(item) {
+//     let li = item;
