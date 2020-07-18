@@ -58,3 +58,15 @@ footer {
     color: rgb(39, 130, 146);
     text-align: center;
 }
+#clickHere {
+    color: rgb(238, 77, 104);
+    display: block; 
+    text-align: center;
+    font-size: x-large;
+    padding-bottom: 25px;
+
+}
+h2 {
+    text-align: center;
+    margin: 0px;
+}
