@@ -33,7 +33,7 @@ function outputBooks() {
     books.forEach(
         book => {
             document.querySelector("#read").innerHTML +=
-                `<li id="${book.Id}" class="favorite">${book.Name}<button class="delete">&#9932</button></li>`
+                `<li id="${book.Id}" >${book.Name}<button class="delete">&#9932</button></li>`
 
         });
 };
@@ -55,19 +55,25 @@ const list = document.getElementById("read");
 list.addEventListener('click', function (event) {
     console.log(event.target);
     if (event.target.tagName === 'LI') {
-        event.target.classList.toggle('favorite');
+        //if (event.target.classList === "favorite") {
+        //     console.log(event.target.classList.innerHTML);
+        //     event.target.toggleClass('favorite');
+        // } else {
+        event.target.classList.add("favorite");
+        localStorage.setItem('books', JSON.stringify(books));
         let id = event.target.id;
         console.log(id);
         let book = books.find(b => b.Id == id);
         if (book) {
             book.Read = !book.Read;
             console.log(books);
+            //document.querySelector("#read").innerHTML = "";
             localStorage.setItem('books', JSON.stringify(books));
         }
 
     }
-    
-//--------------------------------------------------------code to delete item-------------------------------------------------
+
+    //--------------------------------------------------------code to delete item-------------------------------------------------
     if (event.target.tagName === "BUTTON") {
         console.log(event.target.tagName);
         let li = event.target.parentNode;
@@ -79,6 +85,7 @@ list.addEventListener('click', function (event) {
             books.splice(index, 1);
             localStorage.setItem('books', JSON.stringify(books));
             li.remove();
+            //document.querySelector("#read").innerHTML = "";
             console.log(books);
         }
     }
