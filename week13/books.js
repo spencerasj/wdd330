@@ -13,10 +13,10 @@ document.getElementById("addBook").addEventListener("click", function (event) {
     event.preventDefault();
     let book = new Book(content.value);
     books.push(book);
-    localStorage.setItem("books", JSON.stringify(books));
-    console.log(books);
+    localStorage.setItem('books', JSON.stringify(books));
+    //console.log(books);
     outputBooks();
-    document.getElementById("bookName").value = "";
+    // document.getElementById("bookName").value = "";
     // document.getElementById("abookName").value = "";
 });
 
@@ -38,28 +38,57 @@ function outputBooks() {
                 `<li id="${book.Id}">${book.Name}
                         <button id="addToReadList">Have you read this?</button>
                        </li>`
-        }
-    );
+        });
     document.getElementById("addToReadList").addEventListener('click', function (event) {
         console.log(event.target);
         if (event.target.tagName === 'BUTTON') {
             //event.target.classList.toggle('checked');
-            let id = event.target.parentNode.id;
-            let book = books.find(t => t.Id == id);
+            let book = event.target.parentNode;
+
+            // let book = books.find(t => t.Id == id);
             if (book) {
                 book.Read = !book.Read;
 
                 console.log(books);
                 readList();
                 localStorage.setItem('books', JSON.stringify(books));
-                let li = event.target.parentNode;
-                console.log(li);
-                li.remove();
+                // let li = event.target.parentNode;
+                // console.log(li);
+                // li.remove();
+                console.log(book);
+                book.remove();
+                localStorage.setItem('books', JSON.stringify(books));
             }
         };
 
     });
+
+
 };
+
+// document.getElementById("addToReadList").addEventListener('click', function (event) {
+//     console.log(event.target);
+//     if (event.target.tagName === 'BUTTON') {
+//         //event.target.classList.toggle('checked');
+//         let book = event.target.parentNode;
+
+//         // let book = books.find(t => t.Id == id);
+//          if (book) {
+//             book.Read = !book.Read;
+
+//             console.log(books);
+//             readList();
+//             localStorage.setItem('books', JSON.stringify(books));
+//             // let li = event.target.parentNode;
+//             // console.log(li);
+//             // li.remove();
+//             console.log(book);
+//             book.remove();
+//             localStorage.setItem('books', JSON.stringify(books));
+//         }
+//     };
+
+// });
 //---------------------------------move li item if it was read----------------------
 
 function readList() {
